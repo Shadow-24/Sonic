@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="content">
+
+		<h2>Registro de Estudios</h2>
+		<h:form>
+
+			<h:outputLabel value="Id:" for="id" styleClass="control-label" />
+			<p:inputText id="id" styleClass="form-control"
+				value="#{estudioController.e.CEstudio}"></p:inputText>
+
+			<h:outputLabel value="Nombre de Estudio: " for="nombreEstudio"
+				styleClass="control-label" />
+			<p:inputText id="nombreEstudio" styleClass="form-control"
+				value="#{estudioController.e.NEstudio}"></p:inputText>
+
+			<h:outputLabel value="Distrito: " for="distrito"
+				styleClass="control-label" />
+			<p:inputText id="distrito" styleClass="form-control"
+				value="#{estudioController.e.CDistrito}"></p:inputText>
+
+			<h:outputLabel value="Instrumento " for="instrumento"
+				styleClass="control-label" />
+			<p:inputText id="instrumento" styleClass="form-control"
+				value="#{estudioController.e.CInstrumento}"></p:inputText>
+
+			<h:outputLabel value="Teléfono:" for="numberphone"
+				styleClass="control-label" />
+			<p:inputText id="numberphone" styleClass="form-control"
+				value="#{estudioController.e.NTelefono}"></p:inputText>
+
+			<h:outputLabel value="Calificacion:" for="calificacion"
+				styleClass="control-label" />
+			<p:inputText id="calificacion" styleClass="form-control"
+				value="#{estudioController.e.NCalificacion}"></p:inputText>
+
+			<p:commandButton value="Grabar"
+				actionListener="#{estudioController.insert()}"
+				action="master?faces-redirect=true" update="@form"></p:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

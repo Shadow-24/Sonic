@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+
+		<h2>Registro de Reservas</h2>
+		<h:form>
+
+			<h:outputLabel value="Id:" for="id" styleClass="control-label" />
+			<p:inputText id="id" styleClass="form-control"
+				value="#{reservaController.r.CReserva}"></p:inputText>
+
+			<h:outputLabel value="Fecha" for="fecha" styleClass="control-label" />
+			<br />
+			<p:calendar id="fecha" pattern="dd/MM/yyyy"
+				value="#{reservaController.r.fecha}" showOn="button"
+				timeZone="America/Mexico_City"></p:calendar>
+			<br />
+
+			<h:outputLabel value="Dueño: " for="duenio"
+				styleClass="control-label" />
+			<p:inputText id="duenio" styleClass="form-control"
+				value="#{reservaController.r.CDuenio}"></p:inputText>
+
+			<h:outputLabel value="Musico: " for="musico"
+				styleClass="control-label" />
+			<p:inputText id="musico" styleClass="form-control"
+				value="#{reservaController.r.CMusico}"></p:inputText>
+
+			<h:outputLabel value="Estudio:" for="estudio"
+				styleClass="control-label" />
+			<p:inputText id="estudio" styleClass="form-control"
+				value="#{reservaController.r.CEstudio}"></p:inputText>
+
+			<h:outputLabel value="Metodo de Pago:" for="metodo"
+				styleClass="control-label" />
+			<p:inputText id="metodo" styleClass="form-control"
+				value="#{reservaController.r.CMetodo_Pago}"></p:inputText>
+
+			<h:outputLabel value="Cantidad de Horas:" for="cant_horas"
+				styleClass="control-label" />
+			<p:inputText id="cant_horas" styleClass="form-control"
+				value="#{reservaController.r.QCant_Horas}"></p:inputText>
+
+			<h:outputLabel value="Cantidad de Personas:" for="cant_personas"
+				styleClass="control-label" />
+			<p:inputText id="cant_personas" styleClass="form-control"
+				value="#{reservaController.r.QCant_Personas}"></p:inputText>
+
+			<h:outputLabel value="Pago:" for="pago" styleClass="control-label" />
+			<p:inputText id="pago" styleClass="form-control"
+				value="#{reservaController.r.CPago}"></p:inputText>
+
+			<p:commandButton value="Grabar"
+				actionListener="#{reservaController.insert()}"
+				action="master?faces-redirect=true" update="@form"></p:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

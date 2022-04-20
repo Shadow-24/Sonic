@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Lista de Personas</h2>
+		<h:form>
+			<p:dataTable id="lstEstudio"
+				value="#{estudioController.listaestudio}" var="es" paginator="true"
+				paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25" rows="5"
+				rowIndexVar="Item" emptyMessage="No existen musicos registradas.">
+
+				<p:column headerText="Id">
+					<h:outputText value="#{es.CEstudio}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Nombre del Estudio">
+					<h:outputText value="#{es.CEstudio}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Distrito">
+					<h:outputText value="#{es.CDistrito}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Instrumentos">
+					<h:outputText value="#{es.CInstrumento}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Teléfono">
+					<h:outputText value="#{es.NTelefono}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Calificación">
+					<h:outputText value="#{es.NCalificacion}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="listEstudio" value="Eliminar"
+						actionListener="#{estudioController.delete(es)}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

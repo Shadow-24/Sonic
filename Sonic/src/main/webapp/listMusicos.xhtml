@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Lista de Personas</h2>
+		<h:form>
+			<p:dataTable id="lstPersonas"
+				value="#{usuarioController.listausuarios}" var="us" paginator="true"
+				paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25" rows="5"
+				rowIndexVar="Item" emptyMessage="No existen musicos registradas.">
+
+				<p:column headerText="Id">
+					<h:outputText value="#{us.CUSuario}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Nombre">
+					<h:outputText value="#{us.NNombre}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Apellido">
+					<h:outputText value="#{us.NApellido}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Distrito">
+					<h:outputText value="#{us.NDistrito}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Teléfono">
+					<h:outputText value="#{us.numCelular}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="listMusicos" value="Eliminar"
+						actionListener="#{usuarioController.delete(us)}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

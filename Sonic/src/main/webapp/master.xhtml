@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+
+	<link rel="shortcut icon" type="image/x-icon"
+		href="resources/img/sonic.ico" />
+
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- Bootstrap CSS -->
+	<link
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+		rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+		crossorigin="anonymous" />
+</h:head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+	<div class="container-fluid">
+
+		<a class="navbar-brand" href="master.xhtml"><img
+			src="resources/img/logo.png" alt="logo sonic" height="30" /></a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Músicos </a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item" href="usuario.xhtml">Registro
+								de Músicos</a></li>
+						<li><a class="dropdown-item" href="listMusicos.xhtml">Lista
+								de Musicos</a></li>
+					</ul></li>
+
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Estudios </a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item" href="escenario.xhtml">Registro
+								de Estudios</a></li>
+						<li><a class="dropdown-item" href="listEstudio.xhtml">Lista
+								de Estudios</a></li>
+					</ul></li>
+
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Instrumentos </a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item" href="instrumento.xhtml">Registro
+								de Instrumentos</a></li>
+						<li><a class="dropdown-item" href="listInstrumento.xhtml">Lista
+								de Instrumentos</a></li>
+					</ul></li>
+
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Reserva </a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item" href="reserva.xhtml">Registro
+								de Reserva</a></li>
+						<li><a class="dropdown-item" href="listReserva.xhtml">Lista
+								de Reserva</a></li>
+					</ul></li>
+			</ul>
+
+		</div>
+	</div>
+	</nav>
+
+	<ui:define name="">
+
+
+	</ui:define>
+
+	<div class="container">
+		<ui:insert name="content">
+			<img src="resources/img/portada.jpg" alt="logo sonic" height="500" />
+		</ui:insert>
+
+	</div>
+
+	<div>
+		<ui:insert name="footerCont"></ui:insert>
+	</div>
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+
+</body>
+</html>
