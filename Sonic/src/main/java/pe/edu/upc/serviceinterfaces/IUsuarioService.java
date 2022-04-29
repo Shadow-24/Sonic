@@ -11,4 +11,7 @@ public interface IUsuarioService {
 	public List<Usuario> list();
 
 	public void delete(int id);
+	
+	public void update(Usuario us);
+	
 }

@@ -53,4 +53,17 @@ public class UsuarioImpl implements IUsuarioDao {
 			System.out.println("Error al eliminar en el DAO");
 		}
 	}
+
+	@Transactional
+	@Override
+	public void update(Usuario us) {
+		// TODO Auto-generated method stub
+		try {
+			em.merge(us);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error al modificar");
+		}
+		
+	}
 }

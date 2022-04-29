@@ -37,6 +37,13 @@
 				<p:column headerText="Operación">
 					<h:commandLink action="listMusicos" value="Eliminar"
 						actionListener="#{usuarioController.delete(us)}" />
+					
+					<h:commandLink action="#{usuarioController.preUpdate(us)}" 
+						value="Modificar" />
+				</p:column>
+				
+				<p:column headerText="Operacion">
+				
 				</p:column>
 			</p:dataTable>
 		</h:form>

@@ -33,4 +33,10 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
 	}
 
+	@Override
+	public void update(Usuario us) {
+		// TODO Auto-generated method stub
+		uDao.update(us);
+	}
+
 }
