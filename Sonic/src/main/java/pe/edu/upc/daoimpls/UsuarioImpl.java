@@ -66,4 +66,23 @@ public class UsuarioImpl implements IUsuarioDao {
 		}
 		
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Usuario> findByNameUsuario(Usuario u) {
+		List<Usuario> lista=new ArrayList<Usuario>();
+		try {
+			//Este query nos permite ver a las persnoas que coincidan con el nombre de usuario
+			Query q=em.createQuery("from Usuario u where u.NNombre like ?1");
+			q.setParameter(1, "%"+u.getNNombre()+"%");
+			
+			//La lista se llena con los resultados de la ejecucion del query
+			lista = (List<Usuario>) q.getResultList();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error al buscar vacunas en el daoimpl");
+		}
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

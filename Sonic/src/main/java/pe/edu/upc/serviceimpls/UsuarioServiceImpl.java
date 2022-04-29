@@ -39,4 +39,10 @@ public class UsuarioServiceImpl implements IUsuarioService {
 		uDao.update(us);
 	}
 
+	@Override
+	public List<Usuario> findByNameVaccine(Usuario u) {
+		// TODO Auto-generated method stub
+		return uDao.findByNameUsuario(u);
+	}
+
 }

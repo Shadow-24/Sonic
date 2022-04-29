@@ -53,6 +53,18 @@ public class UsuarioController {
 		}
 	}
 
+	//BUSCAR 
+	public void findByNameUsuario()  {
+		try {
+			//Llena una nueva lista con los usuarios del metodo
+			listausuarios=uService.findByNameVaccine(this.getU());
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error al buscar usuario en el controlador");
+		}
+	}
+	
+	
 	public void delete(Usuario us) {
 		try {
 			uService.delete(us.getCUSuario());
@@ -94,7 +106,7 @@ public class UsuarioController {
 	
 	
 	
-		public void setListausuarios(List<Usuario> listausuarios) {
+	public void setListausuarios(List<Usuario> listausuarios) {
 	
 		this.listausuarios = listausuarios;
 	}
