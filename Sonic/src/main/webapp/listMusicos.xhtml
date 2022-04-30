@@ -17,7 +17,7 @@
 					
 						<h:outputLabel value="Ingrese el nombre de un usuario:" for="name"
 							styleClass="control-label" />
-						<p:inputText id="name" value="##{usuarioController.u.NNombre}"
+						<p:inputText id="name" value="#{usuarioController.u.NNombre}"
 							styleClass="form-control" />
 						<p:commandButton value="Buscar" update="lstPersonas"
 							actionListener="#{usuarioController.findByNameUsuario()}" />
@@ -58,9 +58,6 @@
 						value="Modificar" />
 				</p:column>
 
-				<p:column headerText="Operacion">
-
-				</p:column>
 			</p:dataTable>
 		</h:form>
 	</ui:define>

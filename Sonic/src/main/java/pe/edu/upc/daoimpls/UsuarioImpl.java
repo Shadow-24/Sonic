@@ -67,9 +67,11 @@ public class UsuarioImpl implements IUsuarioDao {
 		
 	}
 
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Usuario> findByNameUsuario(Usuario u) {
+		
 		List<Usuario> lista=new ArrayList<Usuario>();
 		try {
 			//Este query nos permite ver a las persnoas que coincidan con el nombre de usuario
@@ -83,6 +85,6 @@ public class UsuarioImpl implements IUsuarioDao {
 			System.out.println("Error al buscar vacunas en el daoimpl");
 		}
 		// TODO Auto-generated method stub
-		return null;
+		return lista;
 	}
 }

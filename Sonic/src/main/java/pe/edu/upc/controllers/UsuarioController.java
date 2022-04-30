@@ -57,7 +57,7 @@ public class UsuarioController {
 	public void findByNameUsuario()  {
 		try {
 			//Llena una nueva lista con los usuarios del metodo
-			listausuarios=uService.findByNameVaccine(this.getU());
+			listausuarios=uService.findByNameUsuario(this.getU());
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("Error al buscar usuario en el controlador");

@@ -14,6 +14,6 @@ public interface IUsuarioService {
 	
 	public void update(Usuario us);
 	
-	public List<Usuario> findByNameVaccine(Usuario u);
+	public List<Usuario> findByNameUsuario(Usuario u);
 	
 }
