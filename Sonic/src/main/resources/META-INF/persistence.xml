@@ -9,7 +9,8 @@
 		<class>pe.edu.upc.entities.Estudio</class>
 		<class>pe.edu.upc.entities.Instrumento</class>
 		<class>pe.edu.upc.entities.Reserva</class>
-
+		<class>pe.edu.upc.entities.Marca</class>
+		<class>pe.edu.upc.entities.TipoInstrumento</class>
 		<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"

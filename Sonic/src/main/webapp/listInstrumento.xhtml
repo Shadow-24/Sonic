@@ -9,11 +9,23 @@
 	<ui:define name="content">
 		<h2>Lista de Instrumentos</h2>
 		<h:form>
+			<div class="row">
+				<div class="col-sm-4">
+
+					<h:outputLabel value="Ingrese el nombre de un instrumento:" for="name"
+						styleClass="control-label" />
+					<p:inputText id="name" value="#{instrumentoController.i.NInstrumento}"
+						styleClass="form-control" />
+					<p:commandButton value="Buscar" update="lstInstrumento"
+						actionListener="#{instrumentoController.findByNameInstrumento()}" />
+
+				</div>
+			</div>
 			<p:dataTable id="lstInstrumento"
 				value="#{instrumentoController.listainstrumento}" var="ins"
 				paginator="true" paginatorPosition="top"
 				rowsPerPageTemplate="5,10,15,20,25" rows="5" rowIndexVar="Item"
-				emptyMessage="No existen instrumentos registradas.">
+				emptyMessage="No existen instrumentos registrados.">
 
 				<p:column headerText="Id">
 					<h:outputText value="#{ins.CInstrumento}"></h:outputText>
@@ -24,16 +36,19 @@
 				</p:column>
 
 				<p:column headerText="Marca">
-					<h:outputText value="#{ins.CMarca}"></h:outputText>
+					<h:outputText value="#{ins.marca.NMarca}"></h:outputText>
 				</p:column>
 
 				<p:column headerText="Tipo de Instrumento">
-					<h:outputText value="#{ins.DTipo_Instrumento}"></h:outputText>
+					<h:outputText value="#{ins.tipoinstrumento.NTipoInstrumento}"></h:outputText>
 				</p:column>
 
 				<p:column headerText="Operación">
 					<h:commandLink action="listInstrumento" value="Eliminar"
 						actionListener="#{instrumentoController.delete(ins)}" />
+					<br />
+					<h:commandLink action="#{instrumentoController.preUpdate(ins)}"
+						value="Modificar" />
 				</p:column>
 			</p:dataTable>
 		</h:form>

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,23 +20,25 @@ public class Instrumento {
 	@Column(name = "NInstrumento", nullable = false, length = 50)
 	private String NInstrumento;
 
-	@Column(name = "CMarca", nullable = false, length = 50)
-	private String CMarca;
+	@ManyToOne
+	@JoinColumn(name = "CMarca", nullable = false)
+	private Marca marca;
 
-	@Column(name = "DTipo_Instrumento", nullable = false, length = 30)
-	private String DTipo_Instrumento;
+	@ManyToOne
+	@JoinColumn(name = "CTipoInstrumento", nullable = false)
+	private TipoInstrumento tipoinstrumento;
 
 	public Instrumento() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Instrumento(int cInstrumento, String nInstrumento, String cMarca, String dTipo_Instrumento) {
+	public Instrumento(int cInstrumento, String nInstrumento, Marca marca, TipoInstrumento tipoinstrumento) {
 		super();
-		CInstrumento = cInstrumento;
-		NInstrumento = nInstrumento;
-		CMarca = cMarca;
-		DTipo_Instrumento = dTipo_Instrumento;
+		this.CInstrumento = cInstrumento;
+		this.NInstrumento = nInstrumento;
+		this.marca = marca;
+		this.tipoinstrumento = tipoinstrumento;
 	}
 
 	public int getCInstrumento() {
@@ -53,20 +57,20 @@ public class Instrumento {
 		NInstrumento = nInstrumento;
 	}
 
-	public String getCMarca() {
-		return CMarca;
+	public Marca getMarca() {
+		return marca;
 	}
 
-	public void setCMarca(String cMarca) {
-		CMarca = cMarca;
+	public void setMarca(Marca marca) {
+		this.marca = marca;
 	}
 
-	public String getDTipo_Instrumento() {
-		return DTipo_Instrumento;
+	public TipoInstrumento getTipoinstrumento() {
+		return tipoinstrumento;
 	}
 
-	public void setDTipo_Instrumento(String dTipo_Instrumento) {
-		DTipo_Instrumento = dTipo_Instrumento;
+	public void setTipoinstrumento(TipoInstrumento tipoinstrumento) {
+		this.tipoinstrumento = tipoinstrumento;
 	}
-
+	
 }
