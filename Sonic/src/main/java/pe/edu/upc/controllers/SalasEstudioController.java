@@ -10,6 +10,7 @@ import javax.inject.Named;
 
 import pe.edu.upc.entities.Estudio;
 import pe.edu.upc.entities.SalasEstudio;
+import pe.edu.upc.serviceinterfaces.IEstudioService;
 import pe.edu.upc.serviceinterfaces.ISalasEstudioService;
 
 @Named
@@ -18,6 +19,9 @@ public class SalasEstudioController {
 
 	@Inject
 	private ISalasEstudioService seService;
+
+	@Inject
+	private IEstudioService eService;
 
 	private SalasEstudio se;
 	List<SalasEstudio> listaSalasEstudio;
@@ -29,6 +33,8 @@ public class SalasEstudioController {
 		this.se = new SalasEstudio();
 		this.listaSalasEstudio = new ArrayList<SalasEstudio>();
 		this.listaEstudio = new ArrayList<Estudio>();
+		this.list();
+		this.listEstudios();
 	}
 
 	public void insert() {
@@ -44,6 +50,14 @@ public class SalasEstudioController {
 			listaSalasEstudio = seService.list();
 		} catch (Exception e) {
 			System.out.println("Error al listar salas en el controlador");
+		}
+	}
+
+	public void listEstudios() {
+		try {
+			listaEstudio = eService.list();
+		} catch (Exception e) {
+			System.out.println("Error al listar Estudios en el controlador de salas");
 		}
 	}
 
