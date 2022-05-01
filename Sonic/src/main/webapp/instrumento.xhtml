@@ -21,17 +21,28 @@
 				value="#{instrumentoController.i.NInstrumento}"></p:inputText>
 
 			<h:outputLabel value="Marca " for="marca" styleClass="control-label" />
-			<p:inputText id="marca" styleClass="form-control"
-				value="#{instrumentoController.i.CMarca}"></p:inputText>
+			<p:selectOneMenu id="cboMarca"
+				value="#{instrumentoController.i.marca}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{instrumentoController.listaMarcas}" var="m"
+					itemLabel="#{m.NMarca}" itemValue="#{m}" />
+			</p:selectOneMenu>
+			<br />
 
 			<h:outputLabel value="Tipo de Instrumento " for="tipo"
 				styleClass="control-label" />
-			<p:inputText id="tipo" styleClass="form-control"
-				value="#{instrumentoController.i.DTipo_Instrumento}"></p:inputText>
+			<p:selectOneMenu id="cboTipoInstrumento"
+				value="#{instrumentoController.i.tipoinstrumento}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems
+					value="#{instrumentoController.listaTipoInstrumentos}" var="ti"
+					itemLabel="#{ti.NTipoInstrumento}" itemValue="#{ti}" />
+			</p:selectOneMenu>
+			<br />
 
 			<p:commandButton value="Grabar"
 				actionListener="#{instrumentoController.insert()}"
-				action="master?faces-redirect=true" update="@form"></p:commandButton>
+				action="listInstrumento?faces-redirect=true" update="@form"></p:commandButton>
 		</h:form>
 	</ui:define>
 </ui:composition>

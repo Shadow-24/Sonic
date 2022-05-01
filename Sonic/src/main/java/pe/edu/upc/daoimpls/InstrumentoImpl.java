@@ -52,4 +52,33 @@ public class InstrumentoImpl implements IInstrumentoDao {
 		}
 	}
 
+	@Transactional
+	@Override
+	public void update(Instrumento i) {
+		// TODO Auto-generated method stub
+		try {
+			em.merge(i);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error al modificar");
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Instrumento> findByNameInstrumento(Instrumento i) {
+		// TODO Auto-generated method stub
+		List<Instrumento> lista = new ArrayList<Instrumento>();
+		try {
+			Query q = em.createQuery("from Instrumento i where i.NInstrumento like ?1");
+			q.setParameter(1, "%" + i.getNInstrumento() + "%");
+			lista = (List<Instrumento>) q.getResultList();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error al buscar instrumentos en el daoimpl");
+		}
+		// TODO Auto-generated method stub
+		return lista;
+	}
+
 }

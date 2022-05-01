@@ -10,7 +10,6 @@ import javax.transaction.Transactional;
 
 import pe.edu.upc.daointerfaces.IEstudioDao;
 import pe.edu.upc.entities.Estudio;
-import pe.edu.upc.entities.Usuario;
 
 public class EstudioImpl implements IEstudioDao {
 
@@ -45,7 +44,7 @@ public class EstudioImpl implements IEstudioDao {
 	@Transactional
 	@Override
 	public void delete(int id) {
-		
+
 		try {
 			Estudio es = em.find(Estudio.class, id);
 			em.remove(es);
