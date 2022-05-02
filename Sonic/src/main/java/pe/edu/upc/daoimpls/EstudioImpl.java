@@ -10,7 +10,6 @@ import javax.transaction.Transactional;
 
 import pe.edu.upc.daointerfaces.IEstudioDao;
 import pe.edu.upc.entities.Estudio;
-import pe.edu.upc.entities.Usuario;
 
 public class EstudioImpl implements IEstudioDao {
 
@@ -22,16 +21,16 @@ public class EstudioImpl implements IEstudioDao {
 	public void insert(Estudio e) {
 		try {
 			em.persist(e);
-
+			
 		} catch (Exception e2) {
 			System.out.println("Error al insertar estudio en el DAO");
 		}
-	}
-
+	}	
+		
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Estudio> list() {
-
+		
 		List<Estudio> listaestudio = new ArrayList<Estudio>();
 		try {
 			Query jpql = em.createQuery("from Estudio e");
@@ -40,8 +39,8 @@ public class EstudioImpl implements IEstudioDao {
 			System.out.println("Error al listar estudio en el DAO");
 		}
 		return listaestudio;
-	}
-
+	}	
+		
 	@Transactional
 	@Override
 	public void delete(int id) {
