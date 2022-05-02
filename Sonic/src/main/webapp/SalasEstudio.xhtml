@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="content">
+
+		<h2>Registro de Salas</h2>
+
+		<h:form>
+			<h:outputLabel value="Id Sala" for="id" styleClass="control-label" />
+			<p:inputText id="id"
+				value="#{salasEstudioController.se.idSalasEstudio}"
+				styleClass="form-control" required="true" />
+			<br/>
+			<h:outputLabel value="Estudio" for="cboEstudio"
+				styleClass="control-label" />
+			<p:selectOneMenu id="cboEstudio"
+				value="#{salasEstudioController.se.estudio}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{salasEstudioController.listaEstudio}"
+					var="e" itemLabel="#{e.NEstudio}" itemValue="#{e}" />
+			</p:selectOneMenu>
+			<br/>
+			<h:outputLabel value="Sala: " for="nombreSala"
+				styleClass="control-label" />
+			<p:inputText id="nombreSala" styleClass="form-control"
+				value="#{salasEstudioController.se.NSalasEstudio}" />
+			<br/>
+			<p:commandButton value="Grabar"
+				actionListener="#{salasEstudioController.insert()}"
+				action="SalasEstudio?faces-redirect=true" update="@form"
+				styleClass="btn btn-primary" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
