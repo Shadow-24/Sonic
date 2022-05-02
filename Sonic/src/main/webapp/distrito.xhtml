@@ -20,6 +20,10 @@
 				styleClass="control-label" />
 			<p:inputText id="distrito" styleClass="form-control"
 				value="#{distritoController.d.NDistrito}" required="true" />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{distritoController.insert()}"
+				action="distrito?faces-redirect=true" update="@form" />
 		</h:form>
 	</ui:define>
 </ui:composition>
