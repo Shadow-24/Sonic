@@ -10,6 +10,7 @@
 		<class>pe.edu.upc.entities.Instrumento</class>
 		<class>pe.edu.upc.entities.Reserva</class>
 		<class>pe.edu.upc.entities.SalasEstudio</class>
+		<class>pe.edu.upc.entities.Distrito</class>
 
 		<properties>
 			<property
