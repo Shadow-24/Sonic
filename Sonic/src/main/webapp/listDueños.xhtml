@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Lista de Dueños</h2>
+		<h:form>
+			<div class="row">
+				<div class="col-sm-4">
+					
+						<h:outputLabel value="Ingrese el nombre de un dueño" for="name"
+							styleClass="control-label" />
+						<p:inputText id="name" value="#{dueñoController.d.NNombre}"
+							styleClass="form-control" />
+						<p:commandButton value="Buscar" update="lstDueños"
+							actionListener="#{dueñoController.findByNameDueño()}" />
+					
+				</div>
+			</div>
+
+			<p:dataTable id="lstDueños"
+				value="#{dueñoController.listadueños}" var="du" paginator="true"
+				paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25" rows="5"
+				rowIndexVar="Item" emptyMessage="No existen dueños registradas.">
+
+				<p:column headerText="Id">
+					<h:outputText value="#{du.CDueño}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Nombre">
+					<h:outputText value="#{du.NNombre}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Apellido">
+					<h:outputText value="#{du.NApellido}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Distrito">
+					<h:outputText value="#{du.NDistrito}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Teléfono">
+					<h:outputText value="#{du.numCelular}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="listDueños" value="Eliminar"
+						actionListener="#{dueñoController.delete(du)}" />
+					<br />
+					<h:commandLink action="#{dueñoController.preUpdate(du)}"
+						value="Modificar" />
+				</p:column>
+
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

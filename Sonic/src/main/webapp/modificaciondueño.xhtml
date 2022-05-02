@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="content">
+
+		<h2>Modificacion de Dueños</h2>
+		<h:form>
+
+			<h:outputLabel value="Id:" for="id" styleClass="control-label" />
+			<p:inputText id="id" styleClass="form-control"
+				value="#{dueñoController.d.CDueño}"></p:inputText>
+
+			<h:outputLabel value="Nombre de Usuario: " for="username"
+				styleClass="control-label" />
+			<p:inputText id="username" styleClass="form-control"
+				value="#{dueñoController.d.DUserName}"></p:inputText>
+
+			<h:outputLabel value="Nombre: " for="nombre"
+				styleClass="control-label" />
+			<p:inputText id="nombre" styleClass="form-control"
+				value="#{dueñoController.d.NNombre}"></p:inputText>
+
+			<h:outputLabel value="Apellido: " for="apellido"
+				styleClass="control-label" />
+			<p:inputText id="apellido" styleClass="form-control"
+				value="#{dueñoController.d.NApellido}"></p:inputText>
+
+			<h:outputLabel value="Número de Celular:" for="numberphone"
+				styleClass="control-label" />
+			<p:inputText id="numberphone" styleClass="form-control"
+				value="#{dueñoController.d.numCelular}"></p:inputText>
+
+			<h:outputLabel value="Correo:" for="correo"
+				styleClass="control-label" />
+			<p:inputText type="email" id="correo" styleClass="form-control"
+				value="#{dueñoController.d.DCorreo}"></p:inputText>
+
+			<h:outputLabel value="Contraseña:" for="contrasena"
+				styleClass="control-label" />
+			<p:inputText type="password" id="contrasena"
+				styleClass="form-control" value="#{dueñoController.d.DPassword}"></p:inputText>
+
+			<h:outputLabel value="Distrito:" for="distrito"
+				styleClass="control-label" />
+			<p:inputText id="distrito" styleClass="form-control"
+				value="#{dueñoController.d.NDistrito}"></p:inputText>
+
+			<h:outputLabel value="Género:" for="genero"
+				styleClass="control-label" />
+			<p:inputText id="genero" styleClass="form-control"
+				value="#{dueñoController.d.NGeneros}"></p:inputText>
+
+			<p:commandButton value="Actualizar"
+				actionListener="#{dueñoController.update()}"
+				action="listDueños?faces-redirect=true" update="@form"></p:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
