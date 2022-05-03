@@ -33,6 +33,7 @@ public class SalasEstudioController {
 		this.se = new SalasEstudio();
 		this.listaSalasEstudio = new ArrayList<SalasEstudio>();
 		this.listaEstudio = new ArrayList<Estudio>();
+		this.se = new SalasEstudio();
 		this.list();
 		this.listEstudios();
 	}
@@ -45,6 +46,10 @@ public class SalasEstudioController {
 		}
 	}
 
+	public String newSalaEstdio() {
+		this.setSe(new SalasEstudio());
+		return "master.xhtml";
+	}
 	public void list() {
 		try {
 			listaSalasEstudio = seService.list();
@@ -53,6 +58,14 @@ public class SalasEstudioController {
 		}
 	}
 
+	public void delete(SalasEstudio esc) {
+		try {
+			seService.delete(esc.getIdSalasEstudio());
+		} catch (Exception e) {
+			System.out.println("Error al eliminar Salas en el controlador de usuario");
+		}
+	}
+	
 	public void listEstudios() {
 		try {
 			listaEstudio = eService.list();

@@ -27,4 +27,10 @@ public class SalasEstudioServiceImpl implements ISalasEstudioService {
 		return seDao.list();
 	}
 
+	@Override
+	public void delete(int id) {
+		seDao.delete(id);
+		
+	}
+
 }

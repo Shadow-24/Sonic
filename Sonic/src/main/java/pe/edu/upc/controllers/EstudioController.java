@@ -73,7 +73,7 @@ public class EstudioController {
 			eService.delete(esc.getCEstudio());
 			this.list();
 		} catch (Exception e) {
-			System.out.println("Error al eliminar estudio en el controlador de usuario");
+			System.out.println("Error al eliminar estudio en el controlador de Estudio");
 		}
 
 	}
@@ -82,7 +82,7 @@ public class EstudioController {
 		try {
 			listaDistrito = dService.list();
 		} catch (Exception e) {
-			System.out.println("Error al listar Distritos en el controlador de salas");
+			System.out.println("Error al listar Distritos en el controlador de estudio");
 		}
 	}
 	
@@ -90,7 +90,7 @@ public class EstudioController {
 		try {
 			listaUsuario = usService.list();
 		} catch (Exception e) {
-			System.out.println("Error al listar Usuarios en el controlador de salas");
+			System.out.println("Error al listar Usuarios en el controlador de estudio");
 		}
 	}
 

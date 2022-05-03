@@ -19,7 +19,6 @@ public class SalasEstudioImpl implements ISalasEstudioDao {
 	@Transactional
 	@Override
 	public void insert(SalasEstudio se) {
-		// TODO Auto-generated method stub
 		try {
 			em.persist(se);
 		} catch (Exception e) {
@@ -40,6 +39,18 @@ public class SalasEstudioImpl implements ISalasEstudioDao {
 			System.out.println("Error al listar el dao de Salas");
 		}
 		return listaSalasEstudio;
+	}
+	
+	@Transactional
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		try {
+			SalasEstudio ses = em.find(SalasEstudio.class, id);
+			em.remove(ses);
+		} catch (Exception e) {
+			System.out.println("Error al eliminar en el DAO");
+		}
 	}
 
 }
