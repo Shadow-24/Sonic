@@ -34,8 +34,8 @@
 			<p:selectOneMenu id="cboDistrito"
 				value="#{estudioController.e.distrito}"
 				converter="omnifaces.SelectItemsConverter">
-				<f:selectItems value="#{estudioController.listaDistrito}" var="dist"
-					itemLabel="#{dist.NDistrito}" itemValue="#{dist}" />
+				<f:selectItems value="#{estudioController.listaDistrito}" var="dt"
+					itemLabel="#{dt.NDistrito}" itemValue="#{dt}" />
 			</p:selectOneMenu>
 			<br />
 			<h:outputLabel value="Teléfono:" for="numberphone"
