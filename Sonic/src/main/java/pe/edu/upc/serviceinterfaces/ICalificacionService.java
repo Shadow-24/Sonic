@@ -11,4 +11,6 @@ public interface ICalificacionService {
 	public List<Calificacion> list();
 
 	public List<Calificacion> findByNameCalificacion(Calificacion cal);
+	
+	public void delete(int id);
 }

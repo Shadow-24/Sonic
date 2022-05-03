@@ -10,11 +10,11 @@ import pe.edu.upc.entities.Calificacion;
 import pe.edu.upc.serviceinterfaces.ICalificacionService;
 
 @Named
-public class CalificacionServiceImpl implements ICalificacionService{
+public class CalificacionServiceImpl implements ICalificacionService {
 
 	@Inject
 	private ICalificacionDao calDao;
-	
+
 	@Override
 	public void insert(Calificacion cal) {
 		// TODO Auto-generated method stub
@@ -31,6 +31,12 @@ public class CalificacionServiceImpl implements ICalificacionService{
 	public List<Calificacion> findByNameCalificacion(Calificacion cal) {
 		// TODO Auto-generated method stub
 		return calDao.findByNameCalificacion(cal);
+	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		calDao.delete(id);
 	}
 
 }

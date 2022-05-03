@@ -54,4 +54,16 @@ public class CalificacionImpl implements ICalificacionDao {
 		return lista;
 	}
 
+	@Transactional
+	@Override
+	public void delete(int id) {
+		try {
+			Calificacion de = em.find(Calificacion.class, id);
+			em.remove(de);
+		} catch (Exception e) {
+			System.out.println("Error al eliminar en el DAO");
+		}
+		
+	}
+
 }
