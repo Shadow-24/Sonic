@@ -55,7 +55,7 @@ public class EstudioController {
 		try {
 			eService.insert(e);
 		} catch (Exception e) {
-			System.out.println("Error al insertar escenario en el controller" + e.getStackTrace());
+			System.out.println("Error al insertar estudio en el controller" + e.getStackTrace());
 		}
 	}
 
