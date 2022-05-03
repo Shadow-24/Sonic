@@ -29,7 +29,7 @@ public class ReservaController {
 		this.r = new Reserva();
 		this.list();
 	}
-	
+		
 	
 	// Métodos para atender peticiones
 
