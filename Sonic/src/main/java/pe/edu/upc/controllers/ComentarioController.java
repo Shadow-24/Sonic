@@ -19,6 +19,7 @@ import pe.edu.upc.serviceinterfaces.IUsuarioService;
 @RequestScoped
 public class ComentarioController {
 
+	
 	@Inject
 	private IComentarioService coService;
 

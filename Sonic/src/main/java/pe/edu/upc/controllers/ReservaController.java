@@ -30,6 +30,7 @@ public class ReservaController {
 		this.list();
 	}
 
+	
 	// Métodos para atender peticiones
 
 	public String newEstudio() {
