@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="content">
+		<h2>Registro de Musicos</h2>
+		<h:form>
+
+			<h:outputLabel value="Usuario" for="cboUsuario"
+				styleClass="control-label" />
+			<br />
+			<p:selectOneMenu id="cboUsuario"
+				value="#{musicoController.m.CUsuario}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{musicoController.listausuarios}" var="u"
+					itemLabel="#{u.NNombre}" itemValue="#{u}" />
+			</p:selectOneMenu>
+			<br />
+
+			<h:outputLabel value="Descripción" for="cboDescripcion"
+				styleClass="control-label" />
+			<br />
+			<p:selectOneMenu id="cboDescripcion"
+				value="#{musicoController.m.DMusico}">
+				<f:selectItem itemLabel="Músico" itemValue="Musico" />
+			</p:selectOneMenu>
+			<br />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{musicoController.insert()}"
+				action="listMusico?faces-redirect=true" update="@form"
+				styleClass="btn btn-primary" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

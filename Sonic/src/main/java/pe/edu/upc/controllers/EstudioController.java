@@ -93,6 +93,14 @@ public class EstudioController {
 			System.out.println("Error al listar Usuarios en el controlador de estudio");
 		}
 	}
+	
+	public void findByNameEstudio() {
+		try {
+			listaestudio = eService.findByNameEstudio(this.getE());
+		} catch (Exception e) {
+			System.out.println("Error al buscar Estudio en el controlador");
+		}
+	}
 
 	// getters & setters
 	public Estudio getE() {

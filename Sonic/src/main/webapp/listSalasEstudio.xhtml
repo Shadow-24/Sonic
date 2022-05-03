@@ -8,29 +8,44 @@
 <ui:composition template="/master.xhtml">
 	<ui:define name="content">
 		<h2>Lista de Salas</h2>
-		<p:dataTable id="listSalasEstudio" var="sal"
-			value="#{salasEstudioController.listaSalasEstudio}" paginator="true"
-			paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25" rows="5"
-			emptyMessage="No existen registros" rowsIndexVar="item">
+		<h:form>
+			<div class="row">
 
-			<p:column headerText="Id">
-				<h:outputText value="#{sal.idSalasEstudio}" />
-			</p:column>
+				<div>
+					<h:outputLabel value="Ingrese el nombre de sala a buscar:"
+						for="name" styleClass="control-label" />
+					<p:inputText id="name"
+						value="#{salasEstudioController.se.NSalasEstudio}"
+						styleClass="form-control" />
+					<p:commandButton value="Buscar" update="listSalasEstudio"
+						actionListener="#{salasEstudioController.findByNameSalasEstudio()}" />
+				</div>
+			</div>
+			<p:dataTable id="listSalasEstudio" var="sal"
+				value="#{salasEstudioController.listaSalasEstudio}" paginator="true"
+				paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25" rows="5"
+				emptyMessage="No existen registros" rowsIndexVar="item">
 
-			<p:column headerText="Estudio">
-				<h:outputText value="#{sal.estudio.NEstudio}" />
-			</p:column>
+				<p:column headerText="Id">
+					<h:outputText value="#{sal.idSalasEstudio}" />
+				</p:column>
 
-			<p:column headerText="Sala">
-				<h:outputText value="#{sal.NSalasEstudio}" />
-			</p:column>
+				<p:column headerText="Estudio">
+					<h:outputText value="#{sal.estudio.NEstudio}" />
+				</p:column>
 
-			<p:column headerText="Operación">
-				<h:commandLink action="listSalasEstudio" value="Eliminar"
-					actionListener="#{salasEstudioController.delete(sal)}" />
-			</p:column>
-			
-		</p:dataTable>
+				<p:column headerText="Sala">
+					<h:outputText value="#{sal.NSalasEstudio}" />
+				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="listSalasEstudio" value="Eliminar"
+						actionListener="#{salasEstudioController.delete(sal)}" />
+				</p:column>
+
+			</p:dataTable>
+		</h:form>
+
 	</ui:define>
 </ui:composition>
 </html>

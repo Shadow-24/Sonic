@@ -30,7 +30,13 @@ public class SalasEstudioServiceImpl implements ISalasEstudioService {
 	@Override
 	public void delete(int id) {
 		seDao.delete(id);
-		
+	
+	}
+	
+	@Override
+	public List<SalasEstudio> findByNameSalasEstudio(SalasEstudio fi) {
+		// TODO Auto-generated method stub
+		return seDao.findByNameSalasEstudio(fi);
 	}
 
 }

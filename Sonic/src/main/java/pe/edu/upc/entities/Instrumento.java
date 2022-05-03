@@ -1,5 +1,7 @@
 package pe.edu.upc.entities;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,6 +23,10 @@ public class Instrumento {
 	private String NInstrumento;
 
 	@ManyToOne
+	@JoinColumn(name = "CEstudio", nullable = false)
+	private Estudio estudio;
+
+	@ManyToOne
 	@JoinColumn(name = "CMarca", nullable = false)
 	private Marca marca;
 
@@ -33,10 +39,12 @@ public class Instrumento {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Instrumento(int cInstrumento, String nInstrumento, Marca marca, TipoInstrumento tipoinstrumento) {
+	public Instrumento(int cInstrumento, String nInstrumento, Estudio estudio, Marca marca,
+			TipoInstrumento tipoinstrumento) {
 		super();
 		this.CInstrumento = cInstrumento;
 		this.NInstrumento = nInstrumento;
+		this.estudio = estudio;
 		this.marca = marca;
 		this.tipoinstrumento = tipoinstrumento;
 	}
@@ -57,6 +65,14 @@ public class Instrumento {
 		NInstrumento = nInstrumento;
 	}
 
+	public Estudio getEstudio() {
+		return estudio;
+	}
+
+	public void setEstudio(Estudio estudio) {
+		this.estudio = estudio;
+	}
+
 	public Marca getMarca() {
 		return marca;
 	}
@@ -72,5 +88,22 @@ public class Instrumento {
 	public void setTipoinstrumento(TipoInstrumento tipoinstrumento) {
 		this.tipoinstrumento = tipoinstrumento;
 	}
-	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(CInstrumento);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Instrumento other = (Instrumento) obj;
+		return CInstrumento == other.CInstrumento;
+	}
+
 }

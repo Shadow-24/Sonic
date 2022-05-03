@@ -20,6 +20,15 @@
 			<p:inputText id="nombre" styleClass="form-control"
 				value="#{instrumentoController.i.NInstrumento}"></p:inputText>
 
+			<h:outputLabel value="Estudio " for="estudio" styleClass="control-label" />
+			<p:selectOneMenu id="cboEstudio"
+				value="#{instrumentoController.i.estudio}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{instrumentoController.listaEstudios}" var="e"
+					itemLabel="#{e.NEstudio}" itemValue="#{e}" />
+			</p:selectOneMenu>
+			<br />
+			
 			<h:outputLabel value="Marca " for="marca" styleClass="control-label" />
 			<p:selectOneMenu id="cboMarca"
 				value="#{instrumentoController.i.marca}"
