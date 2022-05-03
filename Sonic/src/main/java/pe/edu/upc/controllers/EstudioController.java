@@ -82,7 +82,7 @@ public class EstudioController {
 		try {
 			listaDistrito = dService.list();
 		} catch (Exception e) {
-			System.out.println("Error al listar Estudios en el controlador de salas");
+			System.out.println("Error al listar Distritos en el controlador de salas");
 		}
 	}
 	
@@ -90,7 +90,7 @@ public class EstudioController {
 		try {
 			listaUsuario = usService.list();
 		} catch (Exception e) {
-			System.out.println("Error al listar Estudios en el controlador de salas");
+			System.out.println("Error al listar Usuarios en el controlador de salas");
 		}
 	}
 
