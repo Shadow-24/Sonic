@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="content">
+		<h2>Registro de Publicaciones</h2>
+		<h:form>
+
+			<h:outputLabel value="Codigo de Publicación" for="id"
+				styleClass="control-label" />
+			<p:inputText id="id" value="#{publicacionController.pu.CPublicacion}"
+				styleClass="form-control" required="true" />
+
+			<h:outputLabel value="Descripción de Publicación" for="descripcion"
+				styleClass="control-label" />
+			<p:inputText id="descripcion"
+				value="#{publicacionController.pu.DPublicacion}"
+				styleClass="form-control" required="true" />
+
+			<h:outputLabel value="Usuario" for="cboUsuario"
+				styleClass="control-label" />
+			<br />
+			<p:selectOneMenu id="cboUsuario"
+				value="#{publicacionController.pu.CUsuario}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{publicacionController.listausuarios}"
+					var="u" itemLabel="#{u.NNombre}" itemValue="#{u}" />
+			</p:selectOneMenu>
+			<br />
+			<h:outputLabel value="Instrumento" for="cboInstrumento"
+				styleClass="control-label" />
+			<br />
+			<p:selectOneMenu id="cboInstrumento"
+				value="#{publicacionController.pu.CInstrumento}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{publicacionController.listainstrumento}"
+					var="i" itemLabel="#{i.NInstrumento}" itemValue="#{i}" />
+			</p:selectOneMenu>
+
+
+			<br />
+			<h:outputLabel value="Fecha de publicación " for="fecha"
+				styleClass="control-label" />
+			<br />
+			<p:calendar id="fecha" pattern="dd/MM/yyyy"
+				value="#{publicacionController.pu.FPublicacion}" showOn="button"
+				timeZone="America/Mexico_City" required="true">
+			</p:calendar>
+			<br />
+			<h:outputLabel value="Publicación" for="texto"
+				styleClass="control-label" />
+			<p:inputText id="texto" type="text"
+				value="#{publicacionController.pu.TPublicacion}"
+				styleClass="form-control" required="true" />
+
+			<h:outputLabel value="Cantidad de reacciones" for="cantidad"
+				styleClass="control-label" />
+			<p:inputText id="cantidad"
+				value="#{publicacionController.pu.QReacciones}"
+				styleClass="form-control" required="true" />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{publicacionController.insert()}"
+				action="listPublicacion?faces-redirect=true" update="@form"
+				styleClass="btn btn-primary" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

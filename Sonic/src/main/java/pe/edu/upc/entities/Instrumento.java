@@ -1,5 +1,7 @@
 package pe.edu.upc.entities;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -71,6 +73,23 @@ public class Instrumento {
 
 	public void setTipoinstrumento(TipoInstrumento tipoinstrumento) {
 		this.tipoinstrumento = tipoinstrumento;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(CInstrumento);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Instrumento other = (Instrumento) obj;
+		return CInstrumento == other.CInstrumento;
 	}
 	
 }

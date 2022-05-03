@@ -63,7 +63,7 @@ public class SalasEstudioController {
 			seService.delete(esc.getIdSalasEstudio());
 			this.list();
 		} catch (Exception e) {
-			System.out.println("Error al eliminar Salas en el controlador de usuario");
+			System.out.println("Error al eliminar Salas en el controlador de sala");
 		}
 	}
 	
