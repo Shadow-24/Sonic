@@ -11,6 +11,7 @@
 		<class>pe.edu.upc.entities.Reserva</class>
 		<class>pe.edu.upc.entities.SalasEstudio</class>
 		<class>pe.edu.upc.entities.Distrito</class>
+		<class>pe.edu.upc.entities.Calificacion</class>
 
 		<properties>
 			<property

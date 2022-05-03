@@ -5,7 +5,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-<ui:composition template="/master.xhtml">
+<ui:composition template="master.xhtml">
 	<ui:define name="content">
 		<h2>Calificar un Estudio</h2>
 		<h:form>
@@ -21,7 +21,7 @@
 				value="#{calificacionController.cal.usuario}"
 				converter="omnifaces.SelectItemsConverter">
 				<f:selectItems value="#{calificacionController.listausuarios}"
-					var="ca" itemLabel="#{ca.NNombre}" itemValue="#{ca}" />
+					var="us" itemLabel="#{us.NNombre}" itemValue="#{us}" />
 			</p:selectOneMenu>
 			<br />
 			<h:outputLabel value="Estudio: " for="cboEstudio"
@@ -30,7 +30,7 @@
 				value="#{calificacionController.cal.estudio}"
 				converter="omnifaces.SelectItemsConverter">
 				<f:selectItems value="#{calificacionController.listaestudios}"
-					var="cas" itemLabel="#{cas.NEstudio}" itemValue="#{cas}" />
+					var="est" itemLabel="#{est.NEstudio}" itemValue="#{est}" />
 			</p:selectOneMenu>
 			<br />
 			<h:outputLabel value="Estrellas: " for="cantidadestrellas"
