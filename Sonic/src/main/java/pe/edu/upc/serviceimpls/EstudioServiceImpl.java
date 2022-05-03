@@ -33,4 +33,10 @@ public class EstudioServiceImpl implements IEstudioService {
 
 	}
 
+	@Override
+	public List<Estudio> findByNameEstudio(Estudio es) {
+		
+		return eDao.findByNameEstudio(es);
+	}
+
 }

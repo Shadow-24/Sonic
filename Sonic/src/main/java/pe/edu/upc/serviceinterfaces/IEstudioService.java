@@ -11,5 +11,7 @@ public interface IEstudioService {
 	public List<Estudio> list();
 
 	public void delete(int id);
+	
+	public List<Estudio> findByNameEstudio(Estudio es);
 
 }

@@ -9,10 +9,23 @@
 	<ui:define name="content">
 		<h2>Lista de Estudios</h2>
 		<h:form>
+			<div class="row">
+
+				<div>
+					<h:outputLabel value="Ingrese el nombre de el Estudio a buscar:"
+						for="name" styleClass="control-label" />
+					<p:inputText id="name"
+						value="#{estudioController.e.NEstudio}"
+						styleClass="form-control" />
+					<p:commandButton value="Buscar" update="lstEstudio"
+						actionListener="#{estudioController.findByNameEstudio()}" />
+				</div>
+			</div>
+
 			<p:dataTable id="lstEstudio"
 				value="#{estudioController.listaestudio}" var="es" paginator="true"
 				paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25" rows="5"
-				rowIndexVar="Item" emptyMessage="No existen musicos registradas.">
+				rowIndexVar="Item" emptyMessage="No existen Estudios registrados.">
 
 				<p:column headerText="Id">
 					<h:outputText value="#{es.CEstudio}"></h:outputText>
