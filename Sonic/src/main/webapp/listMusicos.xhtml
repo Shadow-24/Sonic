@@ -9,6 +9,19 @@
 	<ui:define name="content">
 		<h2>Lista de Personas</h2>
 		<h:form>
+			<div class="row">
+				<div class="col-sm-4">
+					
+						<h:outputLabel value="Ingrese el nombre de un usuario:" for="name"
+							styleClass="control-label" />
+						<p:inputText id="name" value="#{usuarioController.u.NNombre}"
+							styleClass="form-control" />
+						<p:commandButton value="Buscar" update="lstPersonas"
+							actionListener="#{usuarioController.findByNameUsuario()}" />
+					
+				</div>
+			</div>
+
 			<p:dataTable id="lstPersonas"
 				value="#{usuarioController.listausuarios}" var="us" paginator="true"
 				paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25" rows="5"
@@ -37,7 +50,11 @@
 				<p:column headerText="Operación">
 					<h:commandLink action="listMusicos" value="Eliminar"
 						actionListener="#{usuarioController.delete(us)}" />
+					<br />
+					<h:commandLink action="#{usuarioController.preUpdate(us)}"
+						value="Modificar" />
 				</p:column>
+
 			</p:dataTable>
 		</h:form>
 	</ui:define>
