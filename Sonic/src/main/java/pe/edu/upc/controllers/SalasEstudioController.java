@@ -75,6 +75,14 @@ public class SalasEstudioController {
 		}
 	}
 
+	 public void findByNameSalasEstudio() {
+		try {
+			listaSalasEstudio=seService.findByNameSalasEstudio(this.getSe());
+		} catch (Exception e) {
+			System.out.println("Error al buscar Salas en el controlador");
+		}
+	}
+	
 	// Getters & Setters
 	public SalasEstudio getSe() {
 		return se;
