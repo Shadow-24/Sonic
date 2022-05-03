@@ -64,7 +64,7 @@ public class EstudioController {
 		try {
 			listaestudio = eService.list();
 		} catch (Exception e) {
-			System.out.println("Error al listar escenario en el controller" + e.getStackTrace());
+			System.out.println("Error al listar estudio en el controller" + e.getStackTrace());
 		}
 	}
 
@@ -73,7 +73,7 @@ public class EstudioController {
 			eService.delete(esc.getCEstudio());
 			this.list();
 		} catch (Exception e) {
-			System.out.println("Error al eliminar escenario en el controlador de usuario");
+			System.out.println("Error al eliminar estudio en el controlador de usuario");
 		}
 
 	}
