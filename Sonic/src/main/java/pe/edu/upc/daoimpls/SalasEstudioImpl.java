@@ -49,8 +49,22 @@ public class SalasEstudioImpl implements ISalasEstudioDao {
 			SalasEstudio ses = em.find(SalasEstudio.class, id);
 			em.remove(ses);
 		} catch (Exception e) {
-			System.out.println("Error al eliminar en el DAO");
+			System.out.println("Error al eliminar salas en el DAO");
 		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<SalasEstudio> findByNameSalasEstudio(SalasEstudio fi) {
+		List<SalasEstudio> lista=new ArrayList<SalasEstudio>();
+		try {
+			Query q=em.createQuery("from SalasEstudio fi where fi.NSalasEstudio like ?1");
+			q.setParameter(1, "%" + fi.getNSalasEstudio()+"%");
+			lista = (List<SalasEstudio>) q.getResultList();
+		} catch (Exception e) {
+			System.out.println("Error al buscar Salas en el daoimpl");
+		}
+		return lista;
 	}
 
 }

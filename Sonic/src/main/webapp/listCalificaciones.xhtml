@@ -8,27 +8,29 @@
 <ui:composition template="master.xhtml">
 	<ui:define name="content">
 		<h2>Calificaciones de Estudios</h2>
-		<p:dataTable id="listCalificaciones" var="cal"
-			value="#{calificacionController.listacalificacion}" paginator="true"
-			paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25" rows="5"
-			emptyMessage="No existen registros" rowsIndexVar="item">
+		<h:form>
+			<p:dataTable id="listCalificaciones" var="cal"
+				value="#{calificacionController.listacalificacion}" paginator="true"
+				paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25" rows="5"
+				emptyMessage="No existen registros" rowsIndexVar="item">
 
-			<p:column headerText="Id">
-				<h:outputText value="#{cal.CCalificacion}" />
-			</p:column>
+				<p:column headerText="Id">
+					<h:outputText value="#{cal.CCalificacion}" />
+				</p:column>
 
-			<p:column headerText="Estudio">
-				<h:outputText value="#{cal.estudio.NEstudio}" />
-			</p:column>
+				<p:column headerText="Estudio">
+					<h:outputText value="#{cal.estudio.NEstudio}" />
+				</p:column>
 
-			<p:column headerText="Usuario">
-				<h:outputText value="#{cal.usuario.NNombre}" />
-			</p:column>
+				<p:column headerText="Usuario">
+					<h:outputText value="#{cal.usuario.NNombre}" />
+				</p:column>
 
-			<p:column headerText="Estrellas">
-				<h:outputText value="#{cal.QEstrellas}" />
-			</p:column>
-		</p:dataTable>
+				<p:column headerText="Estrellas">
+					<h:outputText value="#{cal.QEstrellas}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
 	</ui:define>
 </ui:composition>
 </html>
