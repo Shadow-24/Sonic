@@ -74,7 +74,15 @@ public class CalificacionController {
 			System.out.println("Error al listar Usuarios en el controlador de salas");
 		}
 	}
-
+	
+	public void findByNameCalificacion() {
+		try {
+			listacalificacion = calService.findByNameCalificacion(this.getCal());
+		} catch (Exception e) {
+			System.out.println("Error al buscar Calificacion en el controlador");
+		}
+	}
+	
 	// Getters and Setters
 	public Calificacion getCal() {
 		return cal;
