@@ -8,18 +8,31 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import pe.edu.upc.entities.Distrito;
 import pe.edu.upc.entities.Estudio;
+import pe.edu.upc.entities.Usuario;
+import pe.edu.upc.serviceinterfaces.IDistritoService;
 import pe.edu.upc.serviceinterfaces.IEstudioService;
+import pe.edu.upc.serviceinterfaces.IUsuarioService;
 
 @Named
 @RequestScoped
 public class EstudioController {
+
 	@Inject
 	private IEstudioService eService;
 
+	@Inject
+	private IDistritoService dService;
+
+	@Inject
+	private IUsuarioService usService;
 	// atributos
 	private Estudio e;
 	private List<Estudio> listaestudio;
+
+	List<Distrito> listaDistrito;
+	List<Usuario> listaUsuario;
 
 	// inicializar
 	@PostConstruct
@@ -78,6 +91,22 @@ public class EstudioController {
 
 	public void setListaestudio(List<Estudio> listaestudio) {
 		this.listaestudio = listaestudio;
+	}
+
+	public List<Distrito> getListaDistrito() {
+		return listaDistrito;
+	}
+
+	public void setListaDistrito(List<Distrito> listaDistrito) {
+		this.listaDistrito = listaDistrito;
+	}
+
+	public List<Usuario> getListaUsuario() {
+		return listaUsuario;
+	}
+
+	public void setListaUsuario(List<Usuario> listaUsuario) {
+		this.listaUsuario = listaUsuario;
 	}
 
 }
