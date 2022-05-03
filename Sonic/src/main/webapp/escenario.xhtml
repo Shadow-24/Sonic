@@ -23,9 +23,9 @@
 			<br />
 			<h:outputLabel value="Nombre del Dueño: " for="cboDueno"
 				styleClass="control-label" />
-			<p:selectOneMenu id="cboDueno" value="#{estudioController.e.usuario}"
+			<p:selectOneMenu id="cboDueno" value="#{estudioController.e.dueno}"
 				converter="omnifaces.SelectItemsConverter">
-				<f:selectItems value="#{estudioController.listaUsuario}" var="es"
+				<f:selectItems value="#{estudioController.listaDueno}" var="es"
 					itemLabel="#{es.NNombre}" itemValue="#{es}" />
 			</p:selectOneMenu>
 			<br />

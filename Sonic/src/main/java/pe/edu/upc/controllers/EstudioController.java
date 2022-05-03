@@ -9,11 +9,11 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.entities.Distrito;
+import pe.edu.upc.entities.Dueño;
 import pe.edu.upc.entities.Estudio;
-import pe.edu.upc.entities.Usuario;
 import pe.edu.upc.serviceinterfaces.IDistritoService;
+import pe.edu.upc.serviceinterfaces.IDueñoService;
 import pe.edu.upc.serviceinterfaces.IEstudioService;
-import pe.edu.upc.serviceinterfaces.IUsuarioService;
 
 @Named
 @RequestScoped
@@ -26,13 +26,13 @@ public class EstudioController {
 	private IDistritoService dService;
 
 	@Inject
-	private IUsuarioService usService;
+	private IDueñoService duService;
 	// atributos
 	private Estudio e;
 	private List<Estudio> listaestudio;
 
 	List<Distrito> listaDistrito;
-	List<Usuario> listaUsuario;
+	List<Dueño> listaDueno;
 
 	// inicializar
 	@PostConstruct
@@ -41,7 +41,7 @@ public class EstudioController {
 		this.e = new Estudio();
 		this.list();
 		this.listDistritos();
-		this.listUsuarios();
+		this.listDueno();
 	}
 
 	// Métodos para atender peticiones
@@ -86,9 +86,9 @@ public class EstudioController {
 		}
 	}
 	
-	public void listUsuarios() {
+	public void listDueno() {
 		try {
-			listaUsuario = usService.list();
+			listaDueno = duService.list();
 		} catch (Exception e) {
 			System.out.println("Error al listar Usuarios en el controlador de estudio");
 		}
@@ -127,12 +127,14 @@ public class EstudioController {
 		this.listaDistrito = listaDistrito;
 	}
 
-	public List<Usuario> getListaUsuario() {
-		return listaUsuario;
+	public List<Dueño> getListaDueno() {
+		return listaDueno;
 	}
 
-	public void setListaUsuario(List<Usuario> listaUsuario) {
-		this.listaUsuario = listaUsuario;
+	public void setListaDueno(List<Dueño> listaDueno) {
+		this.listaDueno = listaDueno;
 	}
+
+	
 
 }
