@@ -44,7 +44,7 @@ public class EstudioImpl implements IEstudioDao {
 	@Transactional
 	@Override
 	public void delete(int id) {
-		
+
 		try {
 			Estudio es = em.find(Estudio.class, id);
 			em.remove(es);

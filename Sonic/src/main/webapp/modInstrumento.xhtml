@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+
+		<h2>Modificar de Instrumentos</h2>
+		<h:form>
+
+			<h:outputLabel value="Id:" for="id" styleClass="control-label" />
+			<p:inputText id="id" styleClass="form-control"
+				value="#{instrumentoController.i.CInstrumento}"></p:inputText>
+
+			<h:outputLabel value="Nombre de Instrumento: " for="nombre"
+				styleClass="control-label" />
+			<p:inputText id="nombre" styleClass="form-control"
+				value="#{instrumentoController.i.NInstrumento}"></p:inputText>
+
+			<h:outputLabel value="Marca " for="marca" styleClass="control-label" />
+			<p:selectOneMenu id="cboMarca"
+				value="#{instrumentoController.i.marca}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{instrumentoController.listaMarcas}" var="m"
+					itemLabel="#{m.NMarca}" itemValue="#{m}" />
+			</p:selectOneMenu>
+			<br />
+
+			<h:outputLabel value="Tipo de Instrumento " for="tipo"
+				styleClass="control-label" />
+			<p:selectOneMenu id="cboTipoInstrumento"
+				value="#{instrumentoController.i.tipoinstrumento}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems
+					value="#{instrumentoController.listaTipoInstrumentos}" var="ti"
+					itemLabel="#{ti.NTipoInstrumento}" itemValue="#{ti}" />
+			</p:selectOneMenu>
+			<br />
+
+			<p:commandButton value="Actualizar"
+				actionListener="#{instrumentoController.update()}"
+				action="listInstrumento?faces-redirect=true" update="@form"></p:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

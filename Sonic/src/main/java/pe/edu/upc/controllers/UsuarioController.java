@@ -53,6 +53,18 @@ public class UsuarioController {
 		}
 	}
 
+	//BUSCAR 
+	public void findByNameUsuario()  {
+		try {
+			//Llena una nueva lista con los usuarios del metodo
+			listausuarios=uService.findByNameUsuario(this.getU());
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error al buscar usuario en el controlador");
+		}
+	}
+	
+	
 	public void delete(Usuario us) {
 		try {
 			uService.delete(us.getCUSuario());
@@ -74,8 +86,28 @@ public class UsuarioController {
 	public List<Usuario> getListausuarios() {
 		return listausuarios;
 	}
-
+	
+	/////UPDATE
+	public String preUpdate(Usuario us) {
+		this.setU(us);
+		return "modificacion.xhtml";
+	}
+	
+	public void update() {
+		try {
+			uService.update(this.u);
+			this.list();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error al modificar vacunacion en el controlador");
+		}
+	}
+	
+	
+	
+	
 	public void setListausuarios(List<Usuario> listausuarios) {
+	
 		this.listausuarios = listausuarios;
 	}
 }

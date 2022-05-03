@@ -33,4 +33,16 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
 	}
 
+	@Override
+	public void update(Usuario us) {
+		// TODO Auto-generated method stub
+		uDao.update(us);
+	}
+
+	@Override
+	public List<Usuario> findByNameUsuario(Usuario u) {
+		// TODO Auto-generated method stub
+		return uDao.findByNameUsuario(u);
+	}
+
 }

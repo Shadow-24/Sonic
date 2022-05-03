@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Lista de Tipos de Instrumentos</h2>
+		<h:form>
+			<div class="row">
+				<div class="col-sm-4">
+
+					<h:outputLabel value="Ingrese un tipo de instrumento" for="name"
+						styleClass="control-label" />
+					<p:inputText id="name"
+						value="#{tipoInstrumentoController.ti.NTipoInstrumento}"
+						styleClass="form-control" />
+					<p:commandButton value="Buscar" update="lstTipoInstrumento"
+						actionListener="#{tipoInstrumentoController.findByNameTipoInstrumento()}" />
+
+				</div>
+			</div>
+			<p:dataTable id="lstTipoInstrumento"
+				value="#{tipoInstrumentoController.listatipoinstrumento}" var="tins"
+				paginator="true" paginatorPosition="top"
+				rowsPerPageTemplate="5,10,15,20,25" rows="5" rowIndexVar="Item"
+				emptyMessage="No existen tipos de instrumentos registrados.">
+
+				<p:column headerText="Id">
+					<h:outputText value="#{tins.CTipoInstrumento}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Tipo de Instrumento">
+					<h:outputText value="#{tins.NTipoInstrumento}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="listTipoInstrumento" value="Eliminar"
+						actionListener="#{tipoInstrumentoController.delete(tins)}" />
+					<br />
+					<h:commandLink
+						action="#{tipoInstrumentoController.preUpdate(tins)}"
+						value="Modificar" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
