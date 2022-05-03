@@ -27,8 +27,8 @@ public class Estudio {
 	private Distrito distrito;
 
 	@ManyToOne
-	@JoinColumn(name = "CUSuario", nullable = false)
-	private Usuario usuario;
+	@JoinColumn(name = "CDueño", nullable = false)
+	private Dueño dueno;
 
 	@Column(name = "NTelefono", nullable = false)
 	private int NTelefono;
@@ -41,13 +41,12 @@ public class Estudio {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Estudio(int cEstudio, String nEstudio, Distrito distrito, Usuario usuario, int nTelefono,
-			String tDireccion) {
+	public Estudio(int cEstudio, String nEstudio, Distrito distrito, Dueño dueno, int nTelefono, String tDireccion) {
 		super();
 		CEstudio = cEstudio;
 		NEstudio = nEstudio;
 		this.distrito = distrito;
-		this.usuario = usuario;
+		this.dueno = dueno;
 		NTelefono = nTelefono;
 		TDireccion = tDireccion;
 	}
@@ -94,12 +93,12 @@ public class Estudio {
 		TDireccion = tDireccion;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	public Dueño getDueno() {
+		return dueno;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setDueno(Dueño dueno) {
+		this.dueno = dueno;
 	}
 
 	@Override
