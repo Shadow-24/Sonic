@@ -13,7 +13,6 @@ import pe.edu.upc.entities.Usuario;
 import pe.edu.upc.serviceinterfaces.IMusicoService;
 import pe.edu.upc.serviceinterfaces.IUsuarioService;
 
-
 @Named
 @RequestScoped
 public class MusicoController {
