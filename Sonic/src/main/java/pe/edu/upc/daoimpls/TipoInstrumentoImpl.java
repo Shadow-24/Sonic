@@ -69,7 +69,7 @@ public class TipoInstrumentoImpl implements ITipoInstrumentoDao {
 	public List<TipoInstrumento> findByNameTipoInstrumento(TipoInstrumento ti) {
 		List<TipoInstrumento> lista = new ArrayList<TipoInstrumento>();
 		try {
-			Query q = em.createQuery("from TipoInstrumento ti where ti.NTipoInstrumento like ?1");
+			Query q=em.createQuery("from TipoInstrumento ti where ti.NTipoInstrumento like ?1");
 			q.setParameter(1, "%" + ti.getNTipoInstrumento() + "%");
 			lista = (List<TipoInstrumento>) q.getResultList();
 		} catch (Exception e) {
