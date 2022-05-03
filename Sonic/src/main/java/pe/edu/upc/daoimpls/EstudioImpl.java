@@ -59,7 +59,7 @@ public class EstudioImpl implements IEstudioDao {
 		List<Estudio> lista = new ArrayList<Estudio>();
 		try {
 			Query q = em.createQuery("from Estudio e where e.NEstudio like ?1");
-			q.setParameter(1, "%" + e.getNEstudio());
+			q.setParameter(1, "%" + e.getNEstudio() + "%");
 			lista = (List<Estudio>) q.getResultList();
 		} catch (Exception e2) {
 			System.out.println("Error al buscar Estudios en el daoimpl");
