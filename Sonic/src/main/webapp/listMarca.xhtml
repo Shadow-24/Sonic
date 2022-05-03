@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Lista de Marcas</h2>
+		<h:form>
+			<div class="row">
+				<div class="col-sm-4">
+
+					<h:outputLabel value="Ingrese el nombre de una marca" for="name"
+						styleClass="control-label" />
+					<p:inputText id="name" value="#{marcaController.m.NMarca}"
+						styleClass="form-control" />
+					<p:commandButton value="Buscar" update="lstMarca"
+						actionListener="#{marcaController.findByNameMarca()}" />
+
+				</div>
+			</div>
+			<p:dataTable id="lstMarca" value="#{marcaController.listamarca}"
+				var="mar" paginator="true" paginatorPosition="top"
+				rowsPerPageTemplate="5,10,15,20,25" rows="5" rowIndexVar="Item"
+				emptyMessage="No existen marcas registradas.">
+
+				<p:column headerText="Id">
+					<h:outputText value="#{mar.CMarca}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Marca">
+					<h:outputText value="#{mar.NMarca}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="listMarca" value="Eliminar"
+						actionListener="#{marcaController.delete(mar)}" />
+					<br />
+					<h:commandLink action="#{marcaController.preUpdate(mar)}"
+						value="Modificar" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

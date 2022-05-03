@@ -9,7 +9,11 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.entities.Instrumento;
+import pe.edu.upc.entities.Marca;
+import pe.edu.upc.entities.TipoInstrumento;
 import pe.edu.upc.serviceinterfaces.IInstrumentoService;
+import pe.edu.upc.serviceinterfaces.IMarcaService;
+import pe.edu.upc.serviceinterfaces.ITipoInstrumentoService;
 
 @Named
 @RequestScoped
@@ -17,10 +21,15 @@ public class InstrumentoController {
 
 	@Inject
 	private IInstrumentoService iService;
-
+	@Inject
+	private IMarcaService mService;
+	@Inject
+	private ITipoInstrumentoService tiService;
 	// atributos
 	private Instrumento i;
 	private List<Instrumento> listainstrumento;
+	private List<Marca> listaMarcas;
+	private List<TipoInstrumento> listaTipoInstrumentos;
 
 	// inicializar
 	@PostConstruct
@@ -28,6 +37,8 @@ public class InstrumentoController {
 		this.listainstrumento = new ArrayList<Instrumento>();
 		this.i = new Instrumento();
 		this.list();
+		this.listMarcas();
+		this.listTipoInstrumentos();
 	}
 
 	// metodos para atender peticiones
@@ -53,12 +64,37 @@ public class InstrumentoController {
 		}
 	}
 
+	public void listMarcas() {
+		try {
+			listaMarcas = mService.list();
+		} catch (Exception e) {
+			System.out.println("Error al listar marcas en controller instrumento");
+		}
+	}
+
+	public void listTipoInstrumentos() {
+		try {
+			listaTipoInstrumentos = tiService.list();
+		} catch (Exception e) {
+			System.out.println("Error al listar tipoinstrumento en controller instrumento");
+		}
+	}
+
+	public void findByNameInstrumento() {
+		try {
+			listainstrumento = iService.findByNameInstrumento(this.getI());
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error al buscar instrumento en el controlador");
+		}
+	}
+
 	public void delete(Instrumento ins) {
 		try {
 			iService.delete(ins.getCInstrumento());
 			this.list();
 		} catch (Exception e) {
-			System.out.println("Error al eliminar instrumentos en el controlador de usuario");
+			System.out.println("Error al eliminar instrumentos en el controlador de instrumento");
 		}
 	}
 
@@ -73,6 +109,37 @@ public class InstrumentoController {
 
 	public List<Instrumento> getListainstrumento() {
 		return listainstrumento;
+	}
+
+	public String preUpdate(Instrumento i) {
+		this.setI(i);
+		return "modInstrumento.xhtml";
+	}
+
+	public List<Marca> getListaMarcas() {
+		return listaMarcas;
+	}
+
+	public void setListaMarcas(List<Marca> listaMarcas) {
+		this.listaMarcas = listaMarcas;
+	}
+
+	public List<TipoInstrumento> getListaTipoInstrumentos() {
+		return listaTipoInstrumentos;
+	}
+
+	public void setListaTipoInstrumentos(List<TipoInstrumento> listaTipoInstrumentos) {
+		this.listaTipoInstrumentos = listaTipoInstrumentos;
+	}
+
+	public void update() {
+		try {
+			iService.update(this.i);
+			this.list();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error al modificar instrumento en el controlador");
+		}
 	}
 
 	public void setListainstrumento(List<Instrumento> listainstrumento) {

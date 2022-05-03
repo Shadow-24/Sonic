@@ -12,4 +12,8 @@ public interface IInstrumentoService {
 
 	public void delete(int id);
 
+	public void update(Instrumento i);
+
+	public List<Instrumento> findByNameInstrumento(Instrumento i);
+
 }

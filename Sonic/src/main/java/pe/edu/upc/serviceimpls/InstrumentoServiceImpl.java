@@ -31,4 +31,16 @@ public class InstrumentoServiceImpl implements IInstrumentoService {
 
 	}
 
+	@Override
+	public void update(Instrumento i) {
+		// TODO Auto-generated method stub
+		iDao.update(i);
+	}
+
+	@Override
+	public List<Instrumento> findByNameInstrumento(Instrumento i) {
+		// TODO Auto-generated method stub
+		return iDao.findByNameInstrumento(i);
+	}
+
 }
