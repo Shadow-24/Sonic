@@ -8,9 +8,11 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import pe.edu.upc.entities.Estudio;
 import pe.edu.upc.entities.Instrumento;
 import pe.edu.upc.entities.Marca;
 import pe.edu.upc.entities.TipoInstrumento;
+import pe.edu.upc.serviceinterfaces.IEstudioService;
 import pe.edu.upc.serviceinterfaces.IInstrumentoService;
 import pe.edu.upc.serviceinterfaces.IMarcaService;
 import pe.edu.upc.serviceinterfaces.ITipoInstrumentoService;
@@ -25,11 +27,14 @@ public class InstrumentoController {
 	private IMarcaService mService;
 	@Inject
 	private ITipoInstrumentoService tiService;
+	@Inject
+	private IEstudioService eService;
 	// atributos
 	private Instrumento i;
 	private List<Instrumento> listainstrumento;
 	private List<Marca> listaMarcas;
 	private List<TipoInstrumento> listaTipoInstrumentos;
+	private List<Estudio> listaEstudios;
 
 	// inicializar
 	@PostConstruct
@@ -39,6 +44,7 @@ public class InstrumentoController {
 		this.list();
 		this.listMarcas();
 		this.listTipoInstrumentos();
+		this.listEstudios();
 	}
 
 	// metodos para atender peticiones
@@ -61,6 +67,14 @@ public class InstrumentoController {
 			listainstrumento = iService.list();
 		} catch (Exception e) {
 			System.out.println("Error al listar instrumentos en el controller" + e.getStackTrace());
+		}
+	}
+
+	public void listEstudios() {
+		try {
+			listaEstudios = eService.list();
+		} catch (Exception e) {
+			System.out.println("Error al listar estudios en controller instrumento");
 		}
 	}
 
@@ -114,6 +128,14 @@ public class InstrumentoController {
 	public String preUpdate(Instrumento i) {
 		this.setI(i);
 		return "modInstrumento.xhtml";
+	}
+
+	public List<Estudio> getListaEstudios() {
+		return listaEstudios;
+	}
+
+	public void setListaEstudios(List<Estudio> listaEstudios) {
+		this.listaEstudios = listaEstudios;
 	}
 
 	public List<Marca> getListaMarcas() {
