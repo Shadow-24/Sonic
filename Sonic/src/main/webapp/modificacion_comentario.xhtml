@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+
+
+	<ui:define name="content">
+		<h2>Modificación de Comentarios</h2>
+		<h:form>
+
+			<h:outputLabel value="Codigo de Comentario" for="id"
+				styleClass="control-label" />
+			<p:inputText id="id" value="#{comentarioController.co.CComentario}"
+				styleClass="form-control" required="true" />
+
+			<h:outputLabel value="Comentario" for="comentario"
+				styleClass="control-label" />
+			<p:inputText id="comentario"
+				value="#{comentarioController.co.TComentario}"
+				styleClass="form-control" required="true" />
+
+			<h:outputLabel value="Usuario" for="cboUsuario"
+				styleClass="control-label" />
+			<br />
+			<p:selectOneMenu id="cboUsuario"
+				value="#{comentarioController.co.CUsuario}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{comentarioController.listausuarios}" var="c"
+					itemLabel="#{c.NNombre}" itemValue="#{c}" />
+			</p:selectOneMenu>
+			<br />
+			<h:outputLabel value="Publicación" for="cboPublicacion"
+				styleClass="control-label" />
+			<br />
+			<p:selectOneMenu id="cboPublicacion"
+				value="#{comentarioController.co.CPublicacion}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{comentarioController.listapublicaciones}"
+					var="p" itemLabel="#{p.CPublicacion}" itemValue="#{p}" />
+			</p:selectOneMenu>
+
+			<br />
+			<h:outputLabel value="Fecha de comentario " for="fecha"
+				styleClass="control-label" />
+			<br />
+			<p:calendar id="fecha" pattern="dd/MM/yyyy"
+				value="#{comentarioController.co.FComentario}" showOn="button"
+				timeZone="America/Mexico_City" required="true">
+			</p:calendar>
+			<br />
+
+			<p:commandButton value="Actualizar"
+				actionListener="#{comentarioController.Update()}"
+				action="listComentario?faces-redirect=true" update="@form"
+				styleClass="btn btn-primary" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

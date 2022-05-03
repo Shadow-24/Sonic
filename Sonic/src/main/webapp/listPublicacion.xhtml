@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="content">
+		<h2>Lista de Publicaciones</h2>
+		<h:form>
+
+			<div class="row">
+				<div>
+					<h:outputLabel value="Ingrese el nombre de la publicación a buscar"
+						for="descripcion" styleClass="control-label" />
+
+					<p:inputText id="descripcion"
+						value="#{publicacionController.pu.DPublicacion}"
+						styleClass="form-control" />
+
+					<p:commandButton value="Buscar" update="lstPublicaciones"
+						actionListener="#{publicacionController.findByNamePublicacion()}" />
+				</div>
+			</div>
+
+			<p:dataTable id="lstPublicaciones"
+				value="#{publicacionController.listapublicaciones}" var="pub"
+				paginator="true" paginatorPosition="top"
+				rowsPerPageTemplate="5,10,15,20,25" rows="5"
+				emptyMessage="No hay publicaciones registradas" rowIndexVar="item">
+
+				<p:column headerText="Id">
+					<h:outputText value="#{pub.CPublicacion}" />
+				</p:column>
+
+				<p:column headerText="Descripción">
+					<h:outputText value="#{pub.DPublicacion}" />
+				</p:column>
+
+				<p:column headerText="Usuario">
+					<h:outputText value="#{pub.CUsuario.NNombre}" />
+				</p:column>
+
+				<p:column headerText="Fecha de publicación">
+					<h:outputText value="#{pub.FPublicacion}">
+						<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
+					</h:outputText>
+				</p:column>
+
+				<p:column headerText="Instrumento">
+					<h:outputText value="#{pub.CInstrumento.NInstrumento}" />
+				</p:column>
+
+				<p:column headerText="Publicación">
+					<h:outputText value="#{pub.TPublicacion}" />
+				</p:column>
+
+				<p:column headerText="Reacciones">
+					<h:outputText value="#{pub.QReacciones}" />
+				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="listPublicacion" value="Eliminar"
+						actionListener="#{publicacionController.delete(pub)}" />
+				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="#{publicacionController.preUpdate(pub)}"
+						value="Modificar" />
+				</p:column>
+
+
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
