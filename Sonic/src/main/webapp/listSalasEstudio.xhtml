@@ -25,7 +25,11 @@
 				<h:outputText value="#{sal.NSalasEstudio}" />
 			</p:column>
 
-
+			<p:column headerText="Operación">
+				<h:commandLink action="listSalasEstudio" value="Eliminar"
+					actionListener="#{salasEstudioController.delete(sal)}" />
+			</p:column>
+			
 		</p:dataTable>
 	</ui:define>
 </ui:composition>

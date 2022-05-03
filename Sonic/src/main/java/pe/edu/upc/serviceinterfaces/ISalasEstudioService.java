@@ -9,4 +9,6 @@ public interface ISalasEstudioService {
 	public void insert(SalasEstudio se);
 
 	public List<SalasEstudio> list();
+
+	public void delete(int id);
 }
