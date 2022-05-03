@@ -83,6 +83,14 @@ public class CalificacionController {
 		}
 	}
 	
+	public void delete(Calificacion esc) {
+		try {
+			calService.delete(esc.getCCalificacion());
+			this.list();
+		} catch (Exception e) {
+			System.out.println("Error al eliminar Calificacion en el controlador de Estudio");
+		}
+	}
 	// Getters and Setters
 	public Calificacion getCal() {
 		return cal;

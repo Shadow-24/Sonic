@@ -11,5 +11,7 @@ public interface ICalificacionDao {
 	public List<Calificacion> list();
 	
 	public List<Calificacion> findByNameCalificacion(Calificacion ca);
+	
+	public void delete(int id);
 
 }

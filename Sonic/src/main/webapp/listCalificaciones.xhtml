@@ -15,7 +15,8 @@
 				<div>
 					<h:outputLabel value="Ingrese el numero de estrellas a buscar:"
 						for="name" styleClass="control-label" />
-					<p:inputText id="name" value="#{calificacionController.cal.QEstrellas}"
+					<p:inputText id="name"
+						value="#{calificacionController.cal.QEstrellas}"
 						styleClass="form-control" />
 					<p:commandButton value="Buscar" update="listCalificaciones"
 						actionListener="#{calificacionController.findByNameCalificacion()}" />
@@ -41,6 +42,10 @@
 
 				<p:column headerText="Estrellas">
 					<h:outputText value="#{cal.QEstrellas}" />
+				</p:column>
+				<p:column headerText="Operación">
+					<h:commandLink action="listCalificaciones" value="Eliminar"
+						actionListener="#{calificacionController.delete(cal)}" />
 				</p:column>
 			</p:dataTable>
 		</h:form>
