@@ -11,4 +11,6 @@ public interface ISalasEstudioDao {
 	public List<SalasEstudio> list();
 
 	public void delete(int id);
+	
+	public List<SalasEstudio> findByNameSalasEstudio(SalasEstudio fi);
 }
