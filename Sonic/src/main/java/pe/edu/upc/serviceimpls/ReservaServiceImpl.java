@@ -31,4 +31,14 @@ public class ReservaServiceImpl implements IReservaService {
 
 	}
 
+	@Override
+	public void Update(Reserva r) {
+		rDao.update(r);
+	}
+
+	@Override
+	public List<Reserva> findByNameEscenario(Reserva r) {
+		return rDao.findbyNameEstudio(r);
+	}
+
 }

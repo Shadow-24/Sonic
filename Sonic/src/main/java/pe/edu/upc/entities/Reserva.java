@@ -1,6 +1,7 @@
 package pe.edu.upc.entities;
 
 import java.util.Date;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +13,23 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Reserva")
 public class Reserva {
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(CReserva);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Reserva other = (Reserva) obj;
+		return CReserva == other.CReserva;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

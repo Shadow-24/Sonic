@@ -10,4 +10,8 @@ public interface IReservaDao {
 	public List<Reserva> list();
 
 	public void delete(int id);
+
+	public void update(Reserva r);
+
+	public List<Reserva> findbyNameEstudio(Reserva r);
 }

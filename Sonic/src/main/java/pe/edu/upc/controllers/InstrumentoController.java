@@ -58,7 +58,7 @@ public class InstrumentoController {
 			iService.delete(ins.getCInstrumento());
 			this.list();
 		} catch (Exception e) {
-			System.out.println("Error al eliminar instrumentos en el controlador de usuario");
+			System.out.println("Error al eliminar instrumentos en el controlador");
 		}
 	}
 

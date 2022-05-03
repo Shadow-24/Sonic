@@ -56,6 +56,11 @@
 					<h:commandLink action="listReserva" value="Eliminar"
 						actionListener="#{reservaController.delete(res)}" />
 				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="#{publicacionController.preUpdate(pub)}"
+						value="Modificar" />
+				</p:column>
 			</p:dataTable>
 		</h:form>
 	</ui:define>

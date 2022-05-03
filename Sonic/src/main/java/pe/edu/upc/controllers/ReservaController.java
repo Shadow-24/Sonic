@@ -18,6 +18,7 @@ public class ReservaController {
 	private IReservaService rService;
 
 	// atributos
+	@Inject
 	private Reserva r;
 	private List<Reserva> listareserva;
 
@@ -61,6 +62,36 @@ public class ReservaController {
 			System.out.println("Error al eliminar reservas en el controlador de usuario");
 		}
 
+	}
+
+	// modificar
+
+	public String preUpdate(Reserva r) {
+
+		this.setR(r);
+		return "modicacion_reserva.xhtml";
+	}
+
+	public void Update() {
+
+		try {
+			rService.Update(this.r);
+			this.list();
+
+		} catch (Exception e) {
+			System.out.println("Error al modificar reserva en el controlador");
+		}
+	}
+
+	// buscar
+
+	public void findByNameEstudio() {
+
+		try {
+			listareserva = rService.findByNameEscenario(this.getR());
+		} catch (Exception e) {
+			System.out.println("Error al buscar la reserva en el controlador");
+		}
 	}
 
 	// getters & setters

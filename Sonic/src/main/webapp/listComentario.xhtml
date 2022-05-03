@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+		<h2>Lista de Comentarios</h2>
+		<h:form>
+
+			<p:dataTable id="lstComentario"
+				value="#{comentarioController.listacomentarios}" var="com"
+				paginator="true" paginatorPosition="top"
+				rowsPerPageTemplate="5,10,15,20,25" rows="5"
+				emptyMessage="No hay comentarios registradas" rowIndexVar="item">
+
+				<p:column headerText="Id">
+					<h:outputText value="#{com.CComentario}" />
+				</p:column>
+
+				<p:column headerText="Comentario">
+					<h:outputText value="#{com.TComentario}" />
+				</p:column>
+
+				<p:column headerText="Usuario">
+					<h:outputText value="#{com.CUsuario.NNombre}" />
+				</p:column>
+
+				<p:column headerText="Fecha del comentario">
+					<h:outputText value="#{com.FComentario}">
+						<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
+					</h:outputText>
+				</p:column>
+
+				<p:column headerText="Publicación">
+					<h:outputText value="#{com.CPublicacion.CPublicacion}" />
+				</p:column>
+
+
+				<p:column headerText="Operación">
+					<h:commandLink action="listComentario" value="Eliminar"
+						actionListener="#{comentarioController.delete(com)}" />
+				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="#{comentarioController.preUpdate(com)}"
+						value="Modificar" />
+				</p:column>
+
+
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
