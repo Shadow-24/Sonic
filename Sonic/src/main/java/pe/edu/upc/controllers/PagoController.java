@@ -59,8 +59,6 @@ public class PagoController {
 			System.out.println("Error al eliminar pago en el controlador");
 		}
 	}
-		
-	
 	
 	public Pago getP() {
 		return p;
