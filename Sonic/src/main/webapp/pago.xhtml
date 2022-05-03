@@ -1,29 +1,41 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 
-	<ui:composition template="master.xhtml">
-		<ui:define name="content">
-			<h2>Registro de Pago</h2>
-			<h:form>
-			
-				<h:outputLabel value="Id:" for="id" styleClass="control/label"/>
-				<p:inputText id="id" styleClass="form-control"
+<ui:composition template="master.xhtml">
+	<ui:define name="content">
+
+		<h2>Registro de Pago</h2>
+		<h:form>
+
+			<h:outputLabel value="Id:" for="id" styleClass="control/label" />
+			<p:inputText id="id" styleClass="form-control"
 				value="#{pagoController.p.CPago}"></p:inputText>
-				
-				<h:outputLabel value="Fecha" for="fecha" 
+			<br />
+
+			<h:outputLabel value="Reserva" for="reserva"
 				styleClass="control-label" />
-				
-				<br />
-				
-				<h:outputLabel value="" />
-			
-			</h:form>
-	
-		</ui:define>
-	</ui:composition>
+			<p:inputText id="Reserva" for="reserva" styleClass="form-control"></p:inputText>
+			<br />
+
+			<h:outputLabel value="Metodo" for="metodo" styleClass="control-label" />
+			<p:inputText id="Metodo" for="metodo" styleClass="form-control"></p:inputText>
+			<br />
+
+			<h:outputLabel value="Monto" for="monto" styleClass="control-label" />
+			<p:inputText id="Monto" for="monto" styleClass="form-control"></p:inputText>
+			<br />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{pagoController.insert()}"
+				action="master?faces-redirect=true" update="@form"></p:commandButton>
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>
 </html>
