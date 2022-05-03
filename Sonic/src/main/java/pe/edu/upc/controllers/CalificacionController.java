@@ -3,6 +3,7 @@ package pe.edu.upc.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -33,6 +34,7 @@ public class CalificacionController {
 	List<Estudio> listaestudios;
 	List<Usuario> listausuarios;
 
+	@PostConstruct
 	public void init() {
 		this.listacalificacion = new ArrayList<Calificacion>();
 		this.cal = new Calificacion();
