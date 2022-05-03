@@ -9,6 +9,9 @@
 		<class>pe.edu.upc.entities.Estudio</class>
 		<class>pe.edu.upc.entities.Instrumento</class>
 		<class>pe.edu.upc.entities.Reserva</class>
+		<class>pe.edu.upc.entities.SalasEstudio</class>
+		<class>pe.edu.upc.entities.Distrito</class>
+		<class>pe.edu.upc.entities.Calificacion</class>
 		<class>pe.edu.upc.entities.Marca</class>
 		<class>pe.edu.upc.entities.TipoInstrumento</class>
 		<properties>

@@ -1,14 +1,18 @@
 package pe.edu.upc.entities;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Escenario")
+@Table(name = "Estudio")
 public class Estudio {
 
 	@Id
@@ -18,33 +22,37 @@ public class Estudio {
 	@Column(name = "NEstudio", nullable = false, length = 50)
 	private String NEstudio;
 
-	@Column(name = "CDistrito", nullable = false, length = 50)
-	private String CDistrito;
+	@ManyToOne
+	@JoinColumn(name = "CDistrito", nullable = false)
+	private Distrito distrito;
 
-	@Column(name = "CInstrumento", nullable = false, length = 40)
-	private String CInstrumento;
+	@ManyToOne
+	@JoinColumn(name = "CUSuario", nullable = false)
+	private Usuario usuario;
 
 	@Column(name = "NTelefono", nullable = false)
 	private int NTelefono;
 
-	@Column(name = "NCalificacion", nullable = false, length = 20)
-	private String NCalificacion;
+	@Column(name = "TDireccion", nullable = false, length = 50)
+	private String TDireccion;
 
 	public Estudio() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Estudio(int cEstudio, String nEstudio, String cDistrito, String cInstrumento, int nTelefono,
-			String nCalificacion) {
+	public Estudio(int cEstudio, String nEstudio, Distrito distrito, Usuario usuario, int nTelefono,
+			String tDireccion) {
 		super();
 		CEstudio = cEstudio;
 		NEstudio = nEstudio;
-		CDistrito = cDistrito;
-		CInstrumento = cInstrumento;
+		this.distrito = distrito;
+		this.usuario = usuario;
 		NTelefono = nTelefono;
-		NCalificacion = nCalificacion;
+		TDireccion = tDireccion;
 	}
+
+	// Getters and Setters
 
 	public int getCEstudio() {
 		return CEstudio;
@@ -62,22 +70,6 @@ public class Estudio {
 		NEstudio = nEstudio;
 	}
 
-	public String getCDistrito() {
-		return CDistrito;
-	}
-
-	public void setCDistrito(String cDistrito) {
-		CDistrito = cDistrito;
-	}
-
-	public String getCInstrumento() {
-		return CInstrumento;
-	}
-
-	public void setCInstrumento(String cInstrumento) {
-		CInstrumento = cInstrumento;
-	}
-
 	public int getNTelefono() {
 		return NTelefono;
 	}
@@ -86,12 +78,45 @@ public class Estudio {
 		NTelefono = nTelefono;
 	}
 
-	public String getNCalificacion() {
-		return NCalificacion;
+	public Distrito getDistrito() {
+		return distrito;
 	}
 
-	public void setNCalificacion(String nCalificacion) {
-		NCalificacion = nCalificacion;
+	public void setDistrito(Distrito distrito) {
+		this.distrito = distrito;
+	}
+
+	public String getTDireccion() {
+		return TDireccion;
+	}
+
+	public void setTDireccion(String tDireccion) {
+		TDireccion = tDireccion;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(CEstudio);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Estudio other = (Estudio) obj;
+		return CEstudio == other.CEstudio;
 	}
 
 }

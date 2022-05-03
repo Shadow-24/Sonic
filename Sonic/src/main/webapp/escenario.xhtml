@@ -15,32 +15,39 @@
 			<h:outputLabel value="Id:" for="id" styleClass="control-label" />
 			<p:inputText id="id" styleClass="form-control"
 				value="#{estudioController.e.CEstudio}"></p:inputText>
-
+			<br />
 			<h:outputLabel value="Nombre de Estudio: " for="nombreEstudio"
 				styleClass="control-label" />
 			<p:inputText id="nombreEstudio" styleClass="form-control"
 				value="#{estudioController.e.NEstudio}"></p:inputText>
-
-			<h:outputLabel value="Distrito: " for="distrito"
+			<br />
+			<h:outputLabel value="Nombre del Dueño: " for="cboDueno"
 				styleClass="control-label" />
-			<p:inputText id="distrito" styleClass="form-control"
-				value="#{estudioController.e.CDistrito}"></p:inputText>
-
-			<h:outputLabel value="Instrumento " for="instrumento"
+			<p:selectOneMenu id="cboDueno" value="#{estudioController.e.usuario}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{estudioController.listaUsuario}" var="es"
+					itemLabel="#{es.NNombre}" itemValue="#{es}" />
+			</p:selectOneMenu>
+			<br />
+			<h:outputLabel value="Distrito: " for="cboDistrito"
 				styleClass="control-label" />
-			<p:inputText id="instrumento" styleClass="form-control"
-				value="#{estudioController.e.CInstrumento}"></p:inputText>
-
+			<p:selectOneMenu id="cboDistrito"
+				value="#{estudioController.e.distrito}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{estudioController.listaDistrito}" var="dt"
+					itemLabel="#{dt.NDistrito}" itemValue="#{dt}" />
+			</p:selectOneMenu>
+			<br />
 			<h:outputLabel value="Teléfono:" for="numberphone"
 				styleClass="control-label" />
 			<p:inputText id="numberphone" styleClass="form-control"
 				value="#{estudioController.e.NTelefono}"></p:inputText>
-
-			<h:outputLabel value="Calificacion:" for="calificacion"
+			<br />
+			<h:outputLabel value="Direccion:" for="tdireccion"
 				styleClass="control-label" />
-			<p:inputText id="calificacion" styleClass="form-control"
-				value="#{estudioController.e.NCalificacion}"></p:inputText>
-
+			<p:inputText id="tdireccion" styleClass="form-control"
+				value="#{estudioController.e.TDireccion}"></p:inputText>
+			<br />
 			<p:commandButton value="Grabar"
 				actionListener="#{estudioController.insert()}"
 				action="master?faces-redirect=true" update="@form"></p:commandButton>
