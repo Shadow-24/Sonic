@@ -45,8 +45,8 @@ public class CalificacionImpl implements ICalificacionDao {
 	public List<Calificacion> findByNameCalificacion(Calificacion ca) {
 		List<Calificacion> lista = new ArrayList<Calificacion>();
 		try {
-			Query q = em.createQuery("from Calificacion ca where ca.QEstrellas like ?1");
-			q.setParameter(1, "%" + ca.getQEstrellas() + "%");
+			Query q = em.createQuery("from Calificacion ca where ca.QEstrellas = ?1");
+			q.setParameter(1, ca.getQEstrellas());
 			lista = (List<Calificacion>) q.getResultList();
 		} catch (Exception e) {
 			System.out.println("Error al buscar calificacion en el daoimpl");
