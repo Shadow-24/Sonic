@@ -27,6 +27,7 @@ public class ComentarioImpl implements IComentarioDao {
 		}
 	}
 
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Comentario> list() {

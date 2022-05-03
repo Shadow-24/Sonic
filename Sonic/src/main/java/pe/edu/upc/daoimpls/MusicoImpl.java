@@ -26,7 +26,7 @@ public class MusicoImpl implements IMusicoDao {
 			System.out.println("Error al insertar musico en el DAOimpl");
 		}
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Musico> list() {

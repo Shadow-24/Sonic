@@ -16,6 +16,7 @@ public class PublicacionImpl implements IPublicacionDao {
 	@PersistenceContext(unitName = "Sonic")
 	private EntityManager em;
 
+	
 	@Transactional
 	@Override
 	public void insert(Publicacion pu) {

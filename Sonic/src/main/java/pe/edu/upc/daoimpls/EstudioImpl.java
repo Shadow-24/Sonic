@@ -16,6 +16,7 @@ public class EstudioImpl implements IEstudioDao {
 	@PersistenceContext(unitName = "Sonic")
 	private EntityManager em;
 
+	
 	@Transactional
 	@Override
 	public void insert(Estudio e) {
