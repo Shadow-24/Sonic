@@ -21,25 +21,29 @@
 			<p:inputText id="nombreEstudio" styleClass="form-control"
 				value="#{estudioController.e.NEstudio}"></p:inputText>
 
-			<h:outputLabel value="Distrito: " for="distrito"
+			<h:outputLabel value="Dueno: " for="cboDueno"
 				styleClass="control-label" />
-			<p:inputText id="distrito" styleClass="form-control"
-				value="#{estudioController.e.CDistrito}"></p:inputText>
+			<p:selectOneMenu id="cboDueno" value="#{estudioController.e.usuario}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{estudioController.listaUsuario}" var="es"
+					itemLabel="#{es.NNombre}" itemValue="#{es}" />
+			</p:selectOneMenu>
 
-			<h:outputLabel value="Instrumento " for="instrumento"
+			<h:outputLabel value="Distrito: " for="cboDistrito"
 				styleClass="control-label" />
-			<p:inputText id="instrumento" styleClass="form-control"
-				value="#{estudioController.e.CInstrumento}"></p:inputText>
+			<p:selectOneMenu id="cboDistrito"
+				value="#{estudioController.e.distrito}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{estudioController.listaDistrito}" var="dist"
+					itemLabel="#{dist.NDistrito}" itemValue="#{dist}" />
+			</p:selectOneMenu>
 
 			<h:outputLabel value="Teléfono:" for="numberphone"
 				styleClass="control-label" />
 			<p:inputText id="numberphone" styleClass="form-control"
 				value="#{estudioController.e.NTelefono}"></p:inputText>
 
-			<h:outputLabel value="Calificacion:" for="calificacion"
-				styleClass="control-label" />
-			<p:inputText id="calificacion" styleClass="form-control"
-				value="#{estudioController.e.NCalificacion}"></p:inputText>
+
 
 			<p:commandButton value="Grabar"
 				actionListener="#{estudioController.insert()}"
