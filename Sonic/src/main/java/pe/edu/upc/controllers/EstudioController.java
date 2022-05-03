@@ -40,6 +40,8 @@ public class EstudioController {
 		this.listaestudio = new ArrayList<Estudio>();
 		this.e = new Estudio();
 		this.list();
+		this.listDistritos();
+		this.listUsuarios();
 	}
 
 	// Métodos para atender peticiones
@@ -74,6 +76,22 @@ public class EstudioController {
 			System.out.println("Error al eliminar escenario en el controlador de usuario");
 		}
 
+	}
+	
+	public void listDistritos() {
+		try {
+			listaDistrito = dService.list();
+		} catch (Exception e) {
+			System.out.println("Error al listar Estudios en el controlador de salas");
+		}
+	}
+	
+	public void listUsuarios() {
+		try {
+			listaUsuario = usService.list();
+		} catch (Exception e) {
+			System.out.println("Error al listar Estudios en el controlador de salas");
+		}
 	}
 
 	// getters & setters
