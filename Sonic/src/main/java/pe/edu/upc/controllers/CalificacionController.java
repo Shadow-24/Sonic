@@ -20,27 +20,27 @@ public class CalificacionController {
 
 	@Inject
 	private ICalificacionService calService;
-	
+
 	@Inject
 	private IEstudioService esService;
-	
+
 	@Inject
 	private IUsuarioService usService;
 
 	private Calificacion cal;
 	private List<Calificacion> listacalificacion;
-	
+
 	List<Estudio> listaestudios;
 	List<Usuario> listausuarios;
-	
+
 	public void init() {
-		this.listacalificacion=new ArrayList<Calificacion>();
-		this.cal=new Calificacion();
+		this.listacalificacion = new ArrayList<Calificacion>();
+		this.cal = new Calificacion();
 		this.list();
 		this.listEstudios();
 		this.listUsuarios();
 	}
-	
+
 	public void insert() {
 		try {
 			calService.insert(cal);
@@ -48,15 +48,15 @@ public class CalificacionController {
 			System.out.println("Error al insertar Calificacion en el controller" + e.getStackTrace());
 		}
 	}
-	
+
 	public void list() {
 		try {
-			listacalificacion=calService.list();
+			listacalificacion = calService.list();
 		} catch (Exception e) {
 			System.out.println("Error al listar Calificacion en el controller" + e.getStackTrace());
 		}
 	}
-	
+
 	public void listEstudios() {
 		try {
 			listaestudios = esService.list();
@@ -64,7 +64,7 @@ public class CalificacionController {
 			System.out.println("Error al listar Estudios en el controlador de salas");
 		}
 	}
-	
+
 	public void listUsuarios() {
 		try {
 			listausuarios = usService.list();
@@ -72,33 +72,38 @@ public class CalificacionController {
 			System.out.println("Error al listar Usuarios en el controlador de salas");
 		}
 	}
-	
-	//Getters and Setters
+
+	// Getters and Setters
 	public Calificacion getCal() {
 		return cal;
 	}
+
 	public void setCal(Calificacion cal) {
 		this.cal = cal;
 	}
+
 	public List<Calificacion> getListacalificacion() {
 		return listacalificacion;
 	}
+
 	public void setListacalificacion(List<Calificacion> listacalificacion) {
 		this.listacalificacion = listacalificacion;
 	}
+
 	public List<Estudio> getListaestudios() {
 		return listaestudios;
 	}
+
 	public void setListaestudios(List<Estudio> listaestudios) {
 		this.listaestudios = listaestudios;
 	}
+
 	public List<Usuario> getListausuarios() {
 		return listausuarios;
 	}
+
 	public void setListausuarios(List<Usuario> listausuarios) {
 		this.listausuarios = listausuarios;
 	}
-	
-	
-	
+
 }
