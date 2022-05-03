@@ -3,6 +3,8 @@ package pe.edu.upc.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -11,6 +13,7 @@ import pe.edu.upc.entities.Usuario;
 import pe.edu.upc.serviceinterfaces.IDueñoService;
 
 @Named
+@RequestScoped
 public class DueñoController {
 
 	@Inject
@@ -19,6 +22,7 @@ public class DueñoController {
 	private Dueño d;
 	private List<Dueño> listadueños;
 
+	@PostConstruct
 	public void init() {
 		this.listadueños = new ArrayList<Dueño>();
 		this.d = new Dueño();
