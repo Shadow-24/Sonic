@@ -23,6 +23,10 @@ public class Instrumento {
 	private String NInstrumento;
 
 	@ManyToOne
+	@JoinColumn(name = "CEstudio", nullable = false)
+	private Estudio estudio;
+
+	@ManyToOne
 	@JoinColumn(name = "CMarca", nullable = false)
 	private Marca marca;
 
@@ -35,10 +39,12 @@ public class Instrumento {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Instrumento(int cInstrumento, String nInstrumento, Marca marca, TipoInstrumento tipoinstrumento) {
+	public Instrumento(int cInstrumento, String nInstrumento, Estudio estudio, Marca marca,
+			TipoInstrumento tipoinstrumento) {
 		super();
 		this.CInstrumento = cInstrumento;
 		this.NInstrumento = nInstrumento;
+		this.estudio = estudio;
 		this.marca = marca;
 		this.tipoinstrumento = tipoinstrumento;
 	}
@@ -57,6 +63,14 @@ public class Instrumento {
 
 	public void setNInstrumento(String nInstrumento) {
 		NInstrumento = nInstrumento;
+	}
+
+	public Estudio getEstudio() {
+		return estudio;
+	}
+
+	public void setEstudio(Estudio estudio) {
+		this.estudio = estudio;
 	}
 
 	public Marca getMarca() {
@@ -91,5 +105,5 @@ public class Instrumento {
 		Instrumento other = (Instrumento) obj;
 		return CInstrumento == other.CInstrumento;
 	}
-	
+
 }
