@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="content">
+		<h2>Lista de Musicos</h2>
+		<h:form>
+
+			<div class="row">
+				<div>
+					<h:outputLabel value="Ingrese el tipo de rol a buscar"
+						for="descripcion" styleClass="control-label" />
+
+					<p:inputText id="descripcion" value="#{musicoController.m.DMusico}"
+						styleClass="form-control" />
+
+					<p:commandButton value="Buscar" update="lstMusico"
+						actionListener="#{musicoController.findByNameCodigo()}" />
+				</div>
+			</div>
+
+			<p:dataTable id="lstMusico" value="#{musicoController.listamusicos}"
+				var="mu" paginator="true" paginatorPosition="top"
+				rowsPerPageTemplate="5,10,15,20,25" rows="5"
+				emptyMessage="No hay musicos registradas" rowIndexVar="item">
+
+				<p:column headerText="Id">
+					<h:outputText value="#{mu.CUsuario.NNombre}" />
+				</p:column>
+
+				<p:column headerText="Comentario">
+					<h:outputText value="#{mu.DMusico}" />
+				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="listMusico" value="Eliminar"
+						actionListener="#{musicoController.delete(mu)}" />
+				</p:column>
+
+				<p:column headerText="Operación">
+					<h:commandLink action="#{musicoController.preUpdate(mu)}"
+						value="Modificar" />
+				</p:column>
+
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
