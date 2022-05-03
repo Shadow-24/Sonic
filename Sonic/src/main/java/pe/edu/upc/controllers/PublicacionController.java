@@ -25,6 +25,7 @@ public class PublicacionController {
 	@Inject
 	private IUsuarioService uService;
 
+	
 	@Inject
 	private IInstrumentoService iService;
 
