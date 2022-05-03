@@ -9,6 +9,19 @@
 	<ui:define name="content">
 		<h2>Calificaciones de Estudios</h2>
 		<h:form>
+
+			<div class="row">
+
+				<div>
+					<h:outputLabel value="Ingrese el numero de estrellas a buscar:"
+						for="name" styleClass="control-label" />
+					<p:inputText id="name" value="#{calificacionController.cal.QEstrellas}"
+						styleClass="form-control" />
+					<p:commandButton value="Buscar" update="listCalificaciones"
+						actionListener="#{calificacionController.findByNameCalificacion()}" />
+				</div>
+			</div>
+
 			<p:dataTable id="listCalificaciones" var="cal"
 				value="#{calificacionController.listacalificacion}" paginator="true"
 				paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25" rows="5"

@@ -27,4 +27,10 @@ public class CalificacionServiceImpl implements ICalificacionService{
 		return calDao.list();
 	}
 
+	@Override
+	public List<Calificacion> findByNameCalificacion(Calificacion cal) {
+		// TODO Auto-generated method stub
+		return calDao.findByNameCalificacion(cal);
+	}
+
 }
